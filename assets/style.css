@@ -2393,13 +2393,35 @@ footer.site a, footer.site a:visited { color: var(--text); font-weight: 700; }
 /* ---- Learning aims --------------------------------------------------- */
 .aim { color: var(--nb-ink); }
 .aim-ib {
-  margin: 0 0 .8rem;
-  padding-bottom: .7rem;
-  border-bottom: 1px solid rgba(0,0,0,.16);
-  font-size: .93rem;
+  position: relative;
+  margin: 0 0 1.1rem;
+  padding: 1rem 1.2rem 1rem 2.6rem;
+  border-left: 5px solid var(--nb-margin);
+  border-radius: 0 12px 12px 0;
+  background: linear-gradient(100deg, rgba(255,244,196,.85), rgba(255,250,228,.5));
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
   line-height: 1.55;
-  font-style: italic;
-  opacity: .85;
+  color: var(--nb-ink);
+  box-shadow: 0 1px 2px rgba(0,0,0,.1), 0 6px 18px rgba(0,0,0,.09);
+}
+/* opening quotation mark */
+.aim-ib::before {
+  content: "\201C";
+  position: absolute;
+  left: .5rem;
+  top: .1rem;
+  font-family: var(--font-serif);
+  font-size: 3.1rem;
+  line-height: 1;
+  opacity: .28;
+}
+.aim-ib .ib-label {
+  display: block;
+  width: max-content;
+  margin-bottom: .45rem;
+  font-size: .6rem;
+  letter-spacing: .14em;
 }
 .aim h3 {
   margin: 0 0 .2rem;
@@ -2425,3 +2447,87 @@ footer.site a, footer.site a:visited { color: var(--text); font-weight: 700; }
   line-height: 1.6;
 }
 .nb-page .aim-ib .ib-label { background: rgba(0,0,0,.1); color: var(--nb-ink); }
+
+
+/* ---- Page-turn ------------------------------------------------------- */
+.nb-book { perspective: 2200px; perspective-origin: left center; }
+.nb-page { transform-style: preserve-3d; backface-visibility: hidden; }
+
+@keyframes turn-fwd {
+  0%   { transform: rotateY(-96deg); opacity: 0; }
+  55%  { opacity: 1; }
+  100% { transform: rotateY(0deg); opacity: 1; }
+}
+@keyframes turn-back {
+  0%   { transform: rotateY(96deg); opacity: 0; }
+  55%  { opacity: 1; }
+  100% { transform: rotateY(0deg); opacity: 1; }
+}
+/* the sheet that lifts away as the new page settles */
+@keyframes sheet-fwd {
+  0%   { transform: rotateY(0deg);   opacity: .9; }
+  100% { transform: rotateY(-104deg); opacity: 0; }
+}
+@keyframes sheet-back {
+  0%   { transform: rotateY(0deg);  opacity: .9; }
+  100% { transform: rotateY(104deg); opacity: 0; }
+}
+
+.nb-page.is-active {
+  animation: turn-fwd .62s cubic-bezier(.22,.68,.3,1) both;
+  transform-origin: left center;
+}
+.notebook[data-dir="back"] .nb-page.is-active {
+  animation-name: turn-back;
+  transform-origin: right center;
+}
+
+/* a ghost sheet, injected by the script, that peels off the spine */
+.nb-sheet {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  border-radius: 0 14px 14px 0;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,.16), rgba(0,0,0,0) 22%),
+    var(--nb-paper);
+  background-image:
+    linear-gradient(90deg, rgba(0,0,0,.16), rgba(0,0,0,0) 22%),
+    repeating-linear-gradient(to bottom, transparent 0 30px, var(--nb-rule) 30px 31px);
+  background-color: var(--nb-paper);
+  box-shadow: 6px 0 22px rgba(0,0,0,.28);
+  transform-origin: left center;
+  animation: sheet-fwd .62s cubic-bezier(.22,.68,.3,1) both;
+}
+.notebook[data-dir="back"] .nb-sheet {
+  transform-origin: right center;
+  animation-name: sheet-back;
+  box-shadow: -6px 0 22px rgba(0,0,0,.28);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nb-page.is-active,
+  .notebook[data-dir="back"] .nb-page.is-active { animation: none; }
+  .nb-sheet { display: none; }
+}
+
+/* ---- Page-turn controls, promoted ------------------------------------ */
+.nb-nav {
+  position: relative;
+  z-index: 6;              /* stays above the peeling sheet */
+}
+.nb-arrow {
+  font-size: .95rem;
+  font-weight: 800;
+  padding: .5rem 1.1rem;
+  border: 2px solid var(--nb-ink);
+  border-radius: 999px;
+  background: var(--nb-paper);
+  box-shadow: 0 1px 0 rgba(0,0,0,.18);
+  transition: transform .12s ease, background .12s ease;
+}
+.nb-arrow:hover:not(:disabled) { background: #efeadb; transform: translateY(-1px); }
+.nb-arrow:active:not(:disabled) { transform: translateY(1px); box-shadow: none; }
+.nb-arrow:disabled { opacity: .3; border-style: dashed; }
+.nb-count { font-weight: 700; letter-spacing: .02em; opacity: .7; }

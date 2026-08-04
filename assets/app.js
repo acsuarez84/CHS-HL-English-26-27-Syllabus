@@ -495,19 +495,38 @@
   var books = document.querySelectorAll('.notebook');
   if (!books.length) return;
 
-  books.forEach(function (book) {
-    var tabs  = Array.prototype.slice.call(book.querySelectorAll('.nb-tab'));
-    var pages = Array.prototype.slice.call(book.querySelectorAll('.nb-page'));
+  books.forEach(function (bookEl) {
+    var tabs  = Array.prototype.slice.call(bookEl.querySelectorAll('.nb-tab'));
+    var pages = Array.prototype.slice.call(bookEl.querySelectorAll('.nb-page'));
     // Scope controls to this notebook; the home page uses ids, quarters use classes.
-    var prev  = book.querySelector('.nb-prev')  || book.querySelector('#nb-prev');
-    var next  = book.querySelector('.nb-next')  || book.querySelector('#nb-next');
-    var count = book.querySelector('.nb-count') || book.querySelector('#nb-count');
-    var noun  = book.classList.contains('notebook-quarters') ? 'Quarter' : 'Page';
+    var prev  = bookEl.querySelector('.nb-prev')  || bookEl.querySelector('#nb-prev');
+    var next  = bookEl.querySelector('.nb-next')  || bookEl.querySelector('#nb-next');
+    var count = bookEl.querySelector('.nb-count') || bookEl.querySelector('#nb-count');
+    var noun  = bookEl.classList.contains('notebook-quarters') ? 'Quarter' : 'Page';
     if (!tabs.length || tabs.length !== pages.length) return;
     var at = 0;
 
-    function show(i, focusTab) {
+    var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var book = bookEl.querySelector('.nb-book');
+
+    function peel() {
+      // A ghost sheet that lifts off the spine while the new page settles.
+      if (reduce || !book) return;
+      var old = book.querySelector('.nb-sheet');
+      if (old) old.remove();
+      var sheet = document.createElement('div');
+      sheet.className = 'nb-sheet';
+      book.appendChild(sheet);
+      sheet.addEventListener('animationend', function () { sheet.remove(); });
+    }
+
+    function show(i, focusTab, animate) {
+      var from = at;
       at = Math.max(0, Math.min(pages.length - 1, i));
+      if (animate !== false && at !== from) {
+        bookEl.setAttribute('data-dir', at > from ? 'fwd' : 'back');
+        peel();
+      }
       tabs.forEach(function (t, n) {
         var on = n === at;
         t.classList.toggle('is-active', on);
@@ -516,8 +535,11 @@
       });
       pages.forEach(function (p, n) {
         p.hidden = n !== at;
-        p.classList.toggle('is-active', n === at);
+        p.classList.remove('is-active');
       });
+      // restart the animation on the page that just became visible
+      void pages[at].offsetWidth;
+      pages[at].classList.add('is-active');
       if (prev) prev.disabled = at === 0;
       if (next) next.disabled = at === pages.length - 1;
       if (count) count.textContent = noun + ' ' + (at + 1) + ' of ' + pages.length;
@@ -530,7 +552,7 @@
     if (prev) prev.addEventListener('click', function () { show(at - 1); });
     if (next) next.addEventListener('click', function () { show(at + 1); });
 
-    book.querySelector('.nb-tabs').addEventListener('keydown', function (e) {
+    bookEl.querySelector('.nb-tabs').addEventListener('keydown', function (e) {
       var k = e.key;
       if (k === 'ArrowDown' || k === 'ArrowRight') { e.preventDefault(); show(at + 1, true); }
       else if (k === 'ArrowUp' || k === 'ArrowLeft') { e.preventDefault(); show(at - 1, true); }
@@ -550,6 +572,6 @@
       });
     }
 
-    show(0);
+    show(0, false, false);
   });
 })();
