@@ -3,6 +3,16 @@ import os, zlib, struct, zipfile, html as H
 
 EMU = 914400  # EMU per inch
 
+# Palette lifted from the first-draft Word document
+NAVY   = "1F4E79"   # header fill / heading text
+PALE   = "EAF1F8"   # banded row fill
+GREY   = "F2F2F2"   # neutral fill
+PEACH  = "FAE2D5"
+SKY    = "DAE9F7"
+MINT   = "D9F2D0"
+RED    = "C00000"
+MUTED  = "595959"
+
 
 def esc(t):
     return (t.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;"))
@@ -84,39 +94,64 @@ class Docx:
             '</pic:pic></a:graphicData></a:graphic></wp:inline></w:drawing></w:r></w:p>')
 
     # ---- table --------------------------------------------------------
-    def table(self, rows, widths=None, header=True):
+    def table(self, rows, widths=None, header=True, band=True):
         if not rows:
             return
         ncol = max(len(r) for r in rows)
         widths = widths or [int(9360 / ncol)] * ncol
         grid = "".join(f'<w:gridCol w:w="{w}"/>' for w in widths)
-        out = ['<w:tbl><w:tblPr><w:tblStyle w:val="TableGrid"/>'
+        out = ['<w:tbl><w:tblPr>'
                '<w:tblW w:w="9360" w:type="dxa"/>'
                '<w:tblBorders>'
-               '<w:top w:val="single" w:sz="4" w:color="AAAAAA"/>'
-               '<w:left w:val="single" w:sz="4" w:color="AAAAAA"/>'
-               '<w:bottom w:val="single" w:sz="4" w:color="AAAAAA"/>'
-               '<w:right w:val="single" w:sz="4" w:color="AAAAAA"/>'
-               '<w:insideH w:val="single" w:sz="4" w:color="CCCCCC"/>'
-               '<w:insideV w:val="single" w:sz="4" w:color="CCCCCC"/>'
-               '</w:tblBorders></w:tblPr>'
+               f'<w:top w:val="single" w:sz="8" w:color="{NAVY}"/>'
+               f'<w:left w:val="single" w:sz="4" w:color="BFD3E6"/>'
+               f'<w:bottom w:val="single" w:sz="8" w:color="{NAVY}"/>'
+               f'<w:right w:val="single" w:sz="4" w:color="BFD3E6"/>'
+               '<w:insideH w:val="single" w:sz="4" w:color="BFD3E6"/>'
+               '<w:insideV w:val="single" w:sz="4" w:color="BFD3E6"/>'
+               '</w:tblBorders>'
+               '<w:tblCellMar>'
+               '<w:top w:w="80" w:type="dxa"/><w:left w:w="110" w:type="dxa"/>'
+               '<w:bottom w:w="80" w:type="dxa"/><w:right w:w="110" w:type="dxa"/>'
+               '</w:tblCellMar></w:tblPr>'
                f'<w:tblGrid>{grid}</w:tblGrid>']
         for ri, row in enumerate(rows):
-            out.append("<w:tr>")
+            hdr = header and ri == 0
+            trpr = '<w:trPr><w:tblHeader/></w:trPr>' if hdr else ""
+            out.append(f"<w:tr>{trpr}")
             for ci in range(ncol):
                 cell = row[ci] if ci < len(row) else ""
-                hdr = header and ri == 0
-                shd = ('<w:shd w:val="clear" w:color="auto" w:fill="E8EDF5"/>'
-                       if hdr else "")
-                runs = self._run(cell, b=hdr, sz=19)
+                if hdr:
+                    fill = NAVY
+                elif band and (ri % 2 == 0):
+                    fill = PALE
+                else:
+                    fill = "FFFFFF"
+                runs = self._run(cell, b=hdr, sz=19,
+                                 color=("FFFFFF" if hdr else None))
                 out.append(
-                    f'<w:tc><w:tcPr><w:tcW w:w="{widths[ci]}" w:type="dxa"/>{shd}'
+                    f'<w:tc><w:tcPr><w:tcW w:w="{widths[ci]}" w:type="dxa"/>'
+                    f'<w:shd w:val="clear" w:color="auto" w:fill="{fill}"/>'
                     '<w:vAlign w:val="top"/></w:tcPr>'
-                    f'<w:p><w:pPr><w:spacing w:before="40" w:after="40"/></w:pPr>{runs}</w:p></w:tc>')
+                    f'<w:p><w:pPr><w:spacing w:before="30" w:after="30"/></w:pPr>'
+                    f'{runs}</w:p></w:tc>')
             out.append("</w:tr>")
         out.append("</w:tbl>")
         self.body.append("".join(out))
-        self.para([self._run("")], space_after=60)
+        self.para([self._run("")], space_after=80)
+
+    def chart(self, title, rows, maxbar=28):
+        """A labelled bar chart drawn with block characters."""
+        self.para([self._run(title, b=True, sz=22, color=NAVY)],
+                  space_before=200, space_after=80)
+        peak = max((v for _l, v in rows), default=1) or 1
+        table = [["", "", ""]]
+        body = []
+        for label, val in rows:
+            bars = "\u25a0" * max(1, round(val / peak * maxbar))
+            body.append([label, bars, str(val)])
+        self.table([["Category", "Distribution", "n"]] + body,
+                   widths=[3000, 5200, 1160])
 
     # ---- save ---------------------------------------------------------
     def save(self, path):
@@ -146,7 +181,7 @@ class Docx:
         styles = ('<?xml version="1.0" encoding="UTF-8" standalone="yes"?>'
                   '<w:styles xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main">'
                   '<w:docDefaults><w:rPrDefault><w:rPr>'
-                  '<w:rFonts w:ascii="Calibri" w:hAnsi="Calibri" w:cs="Calibri"/>'
+                  '<w:rFonts w:ascii="Arial Narrow" w:hAnsi="Arial Narrow" w:cs="Arial Narrow"/>'
                   '<w:sz w:val="22"/><w:szCs w:val="22"/></w:rPr></w:rPrDefault>'
                   '<w:pPrDefault><w:pPr><w:spacing w:after="120" w:line="276" '
                   'w:lineRule="auto"/></w:pPr></w:pPrDefault></w:docDefaults>'

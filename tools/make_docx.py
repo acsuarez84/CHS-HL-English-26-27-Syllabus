@@ -1,7 +1,7 @@
 """Build a Word document from the generated syllabus site."""
 import os, re, html, urllib.request, hashlib
 from html.parser import HTMLParser
-from docxlib import Docx
+from docxlib import Docx, NAVY, PALE, MUTED, RED
 
 SITE = "/Users/angelysuarez/Documents/GitHub/CHS-HL English 26-27 Syllabus"
 CACHE = os.path.join(os.path.dirname(__file__), "imgcache")
@@ -177,6 +177,80 @@ class Page(HTMLParser):
         self.handle_data(html.unescape("&#" + name + ";"))
 
 
+
+
+def charts(d):
+    """Course-at-a-glance charts, in the style of the first-draft document."""
+    d.body.append('<w:p><w:r><w:br w:type="page"/></w:r></w:p>')
+    d.para([d._run("Course at a Glance", b=True, sz=36, color=NAVY)], space_after=60)
+    d.rule()
+    d.para([d._run("The charts below summarise how the course meets IB HL requirements "
+                   "and how its texts are distributed. Every figure is counted from the "
+                   "course outline itself.", i=True, sz=20, color=MUTED)],
+           space_after=200)
+
+    d.para([d._run("IB HL compliance", b=True, sz=26, color=NAVY)],
+           space_before=160, space_after=80)
+    d.table([
+        ["Requirement", "Minimum", "This course", "Status"],
+        ["Literary works studied", "6", "6", "Met"],
+        ["Works in translation, PRL authors", "2", "2", "Met"],
+        ["Works originally in the language studied, PRL", "2", "2", "Met"],
+        ["Free choice works", "2", "2", "Met"],
+        ["Literary forms", "3", "4  (novella, tragedy, poetry, short fiction)", "Exceeded"],
+        ["Periods", "3", "4  (1622, 1911–30, 1948–62, 1977)", "Exceeded"],
+        ["Countries or regions", "3", "6  (UK, US, Argentina, Brazil, Japan, NZ)", "Exceeded"],
+        ["Continents", "2", "4  (Europe, N. America, S. America, Asia/Oceania)", "Exceeded"],
+    ], widths=[3400, 1150, 3400, 1410])
+
+    d.chart("Literary works by region",
+            [("South America", 2), ("Europe (UK)", 1), ("North America", 1),
+             ("Asia (Japan)", 1), ("Oceania / UK", 1)])
+
+    d.chart("Literary works by form",
+            [("Novella", 2), ("Poetry", 1), ("Tragedy", 1), ("Short fiction", 1),
+             ("Novel", 1)])
+
+    d.chart("Non-literary sources by body of work",
+            [("Political cartoons", 12), ("Photography", 13), ("Advertisements", 9),
+             ("Speeches", 5), ("Websites & blogs", 4), ("Art", 6),
+             ("Infographics", 4), ("Satire", 4), ("Music", 1), ("Film", 1)])
+
+    d.para([d._run("Global issue coverage", b=True, sz=26, color=NAVY)],
+           space_before=200, space_after=80)
+    d.para([d._run("The Individual Oral needs one non-literary text and one literary "
+                   "work sharing a field of inquiry. Every field must therefore have "
+                   "both.", sz=20, color=MUTED)], space_after=100)
+    d.table([
+        ["Field of inquiry", "Literary works", "Non-literary", "Available for the IO"],
+        ["Culture, identity and community", "3", "Yes", "Yes"],
+        ["Beliefs, values and education", "1", "Yes", "Yes  (narrowest — see note)"],
+        ["Politics, power and justice", "1", "Yes", "Yes"],
+        ["Art, creativity and the imagination", "0 primary", "Yes", "Secondary only"],
+        ["Science, technology and the environment", "1", "Yes", "Yes"],
+    ], widths=[3400, 1700, 1700, 2560])
+    d.para([d._run("Note. Beliefs, values and education is carried by Eliot on the "
+                   "literary side and by Malala Yousafzai's UN address on the "
+                   "non-literary side. It is the narrowest field in the course; a "
+                   "student choosing it should know that before committing.",
+                   i=True, sz=18, color=RED)], space_after=160)
+
+    d.para([d._run("Assessment weighting and timing", b=True, sz=26, color=NAVY)],
+           space_before=200, space_after=80)
+    d.table([
+        ["Component", "Type", "When"],
+        ["Individual Oral", "Internal, externally moderated", "Mid-March to mid-April 2027"],
+        ["HL Essay", "External, 1,200–1,500 words", "Before Winter Break, December 2027"],
+        ["Paper 1", "External, guided textual analysis", "May 2028"],
+        ["Paper 2", "External, comparative essay", "May 2028"],
+    ], widths=[2600, 3600, 3160])
+
+    d.chart("Literary works per quarter",
+            [("Y1 Q1  Tunnel", 1), ("Y1 Q2  Eliot", 1), ("Y1 Q3  Dunes", 1),
+             ("Y1 Q4  Mansfield", 1), ("Y2 Q1  Othello", 1),
+             ("Y2 Q2  Hour of the Star", 1)])
+
+
 def main():
     d = Docx()
     # ---- title page
@@ -197,6 +271,8 @@ def main():
     d.para([d._run("Generated from the course website · "
                    "acsuarez84.github.io/CHS-HL-English-26-27-Syllabus", sz=18,
                    color="888888")], align="center")
+
+    charts(d)
 
     for fn, title in PAGES:
         path = os.path.join(SITE, fn)
