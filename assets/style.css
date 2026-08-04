@@ -1565,14 +1565,14 @@ footer.site a, footer.site a:visited { color: var(--text); font-weight: 700; }
   overflow: hidden;
 }
 .bg-emblem svg {
-  width: min(150vh, 150vw);
+  width: min(178vh, 178vw);
   height: auto;
-  opacity: .07;
+  opacity: .16;
 }
-:root[data-theme="dark"] .bg-emblem svg { opacity: .10; }
-.bg-ring { fill: none; stroke: var(--text); stroke-width: 2.5; }
-.bg-thick { stroke-width: 5; }
-.bg-grid { fill: none; stroke: var(--text); stroke-width: 1.6; }
+:root[data-theme="dark"] .bg-emblem svg { opacity: .20; }
+.bg-ring { fill: none; stroke: var(--text); stroke-width: 4; }
+.bg-thick { stroke-width: 8; }
+.bg-grid { fill: none; stroke: var(--text); stroke-width: 2.6; }
 
 /* Keep content legible above the watermark. */
 .wrap { position: relative; }
