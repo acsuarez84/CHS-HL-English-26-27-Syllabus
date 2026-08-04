@@ -2367,3 +2367,25 @@ footer.site a, footer.site a:visited { color: var(--text); font-weight: 700; }
 .nb-page .src-tile { border-color: rgba(0,0,0,.3); }
 .nb-page .tile-note, .nb-page .cover-ed, .nb-page .src-fig figcaption { color: rgba(0,0,0,.6); }
 .nb-page a { color: #6b2d5c; }
+
+/* ---- Author / artist context ----------------------------------------- */
+.author-note {
+  margin: .3rem 0 .5rem;
+  font-size: .92rem;
+}
+.au-label, .au-inline .au-label {
+  display: inline-block;
+  font-size: .6rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .12rem .45rem;
+  border-radius: 4px;
+  background: var(--card-chip-bg);
+  color: var(--card-chip-text);
+  margin-right: .4rem;
+  vertical-align: middle;
+}
+.au-host { font-size: .82rem; opacity: .7; }
+.au-inline { display: inline; }
+.nb-page .au-label { background: rgba(0,0,0,.1); color: var(--nb-ink); }
