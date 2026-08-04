@@ -2158,3 +2158,88 @@ footer.site a, footer.site a:visited { color: var(--text); font-weight: 700; }
   .notebook-quarters .nb-tab-label { display: none; }
   .notebook-quarters .nb-tab-num { font-size: .9rem; opacity: 1; }
 }
+
+/* ---- Notebook cover label -------------------------------------------- */
+.nb-cover {
+  display: grid;
+  grid-template-columns: minmax(0, 20rem) minmax(0, 1fr);
+  gap: 1.4rem;
+  align-items: center;
+  margin: 1.4rem 0 .9rem;
+}
+.nb-label {
+  position: relative;
+  background: var(--nb-paper);
+  color: var(--nb-ink);
+  border: 2px solid var(--nb-ink);
+  border-radius: 3px;
+  padding: 1rem 1.2rem 1.1rem;
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+  transform: rotate(-.7deg);
+}
+/* strips of tape at the top corners */
+.nb-label::before, .nb-label::after {
+  content: "";
+  position: absolute;
+  top: -9px;
+  width: 54px;
+  height: 18px;
+  background: rgba(214, 199, 148, .55);
+  border: 1px solid rgba(140, 125, 80, .38);
+}
+.nb-label::before { left: 12px; transform: rotate(-6deg); }
+.nb-label::after  { right: 12px; transform: rotate(5deg); }
+.nb-label-top {
+  display: block;
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  opacity: .6;
+}
+.nb-label h3 {
+  margin: .3rem 0 .15rem;
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  line-height: 1.15;
+  color: var(--nb-ink);
+}
+.nb-label-sub {
+  display: block;
+  font-size: .84rem;
+  font-weight: 700;
+  opacity: .65;
+}
+.nb-label-rules {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: .8rem;
+  margin-top: 1rem;
+}
+.nb-label-rules span {
+  border-bottom: 1.5px solid var(--nb-ink);
+  padding-bottom: .1rem;
+  min-height: 1.5rem;
+  display: flex;
+  align-items: flex-end;
+  opacity: .8;
+}
+.nb-label-rules i {
+  font-style: normal;
+  font-size: .6rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .55;
+}
+.nb-cover-meta {
+  margin: 0;
+  color: var(--text-soft);
+  line-height: 1.6;
+  max-width: 34rem;
+}
+@media (max-width: 720px) {
+  .nb-cover { grid-template-columns: 1fr; gap: 1rem; }
+  .nb-label { transform: none; max-width: 22rem; }
+}
