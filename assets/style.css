@@ -1926,3 +1926,36 @@ footer.site a, footer.site a:visited { color: var(--text); font-weight: 700; }
   .nb-cue { border-right: none; border-bottom: 2px solid var(--nb-margin); padding: .6rem 0; }
   .nb-notes { padding: .8rem 0 0; }
 }
+
+/* ---- Book covers ----------------------------------------------------- */
+.cover-link {
+  display: block;
+  width: 132px;
+  margin: 0 0 .7rem;
+  text-decoration: none;
+}
+.cover {
+  display: block;
+  width: 132px;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid rgba(0,0,0,.25);
+  box-shadow: 0 2px 5px rgba(0,0,0,.3), 0 10px 22px rgba(0,0,0,.22);
+  background: #eee;
+  transition: transform .16s ease, box-shadow .16s ease;
+}
+.cover-link:hover .cover {
+  transform: translateY(-3px) rotate(-1deg);
+  box-shadow: 0 4px 9px rgba(0,0,0,.34), 0 16px 34px rgba(0,0,0,.28);
+}
+.cover-ed {
+  display: block;
+  font-size: .72rem;
+  line-height: 1.35;
+  color: var(--card-soft);
+  margin-top: .35rem;
+}
+.wcard .cover-link { margin: .6rem 0 .5rem; }
+@media (max-width: 560px) {
+  .cover-link, .cover { width: 104px; }
+}
