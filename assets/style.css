@@ -2548,3 +2548,7 @@ footer.site a, footer.site a:visited { color: var(--text); font-weight: 700; }
 .toward-qs li,
 .field-plain,
 .concept-connect { max-width: 74ch; }
+
+/* ---- Grading scale table --------------------------------------------- */
+.grade-scale { min-width: 260px; }
+.grade-scale td:last-child { width: 6rem; text-align: center; font-size: 1.05rem; }
