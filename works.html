@@ -15,6 +15,22 @@
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 
+<div class="bg-emblem" aria-hidden="true">
+  <svg viewBox="0 0 400 400" focusable="false">
+    <circle cx="200" cy="200" r="192" class="bg-ring"/>
+    <circle cx="200" cy="200" r="170" class="bg-ring"/>
+    <circle cx="200" cy="200" r="132" class="bg-ring bg-thick"/>
+    <g class="bg-grid">
+      <ellipse cx="200" cy="200" rx="132" ry="132"/>
+      <ellipse cx="200" cy="200" rx="44" ry="132"/>
+      <ellipse cx="200" cy="200" rx="88" ry="132"/>
+      <line x1="68" y1="200" x2="332" y2="200"/>
+      <line x1="86" y1="134" x2="314" y2="134"/>
+      <line x1="86" y1="266" x2="314" y2="266"/>
+    </g>
+  </svg>
+</div>
+
 <div class="sticky-stack">
 <header class="topbar">
   <div class="topbar-inner">
@@ -45,6 +61,11 @@
     <button class="util-btn" id="read-aloud" type="button" aria-pressed="false"
             title="Read this page aloud">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 8.5a4 4 0 0 1 0 7"/><path d="M18.5 6a7.5 7.5 0 0 1 0 12"/></svg><span class="label">Read aloud</span>
+    </button>
+
+    <button class="util-btn" id="cite-size" type="button" aria-pressed="false"
+            title="Citations are set in 6px small print. Enlarge them to read.">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19 9 5l5 14"/><path d="M5.5 15h7"/><path d="M16 19l4-9 0 0"/></svg><span class="label">Bigger citations</span>
     </button>
 
     <button class="util-btn" id="theme-toggle" type="button" aria-pressed="false"
@@ -125,32 +146,50 @@
       <thead><tr><th scope="col">Work / form / context</th><th scope="col">Connection to IB concepts</th><th scope="col">Global issue (field of inquiry)</th></tr></thead>
       <tbody>
       <tr>
-        <th scope="row"><em>The Tunnel</em><span class="byline">Sabato &middot; Novella &middot; Argentina, 1956</span></th>
+        <th scope="row"><em>The Tunnel</em><span class="byline">Sabato &middot; Novella &middot; Argentina, 1956</span><div class="mini-cites">
+        <div class="mini-row"><span class="mini-style">APA</span><span class="mini-text">Sabato, E. (2011). <em>The tunnel</em> (M. S. Peden, Trans.). Penguin Classics. (Original work published 1948)</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+        <div class="mini-row"><span class="mini-style">MLA</span><span class="mini-text">Sabato, Ernesto. <em>The Tunnel</em>. Translated by Margaret Sayers Peden, Penguin Classics, 2011.</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+      </div></th>
         <td><ul class="concept-list"><li><strong>Identity</strong> &mdash; Castel&rsquo;s fractured, narcissistic self; obsessive consciousness.</li><li><strong>Perspective</strong> &mdash; Unreliable first-person confession; subjective reality.</li><li><strong>Communication</strong> &mdash; The failure of authentic human connection.</li></ul></td>
         <td><span class="gi gi-culture">Culture, identity and community</span><p>Alienation and isolation in modern urban society; the impossibility of being truly known.</p><p class="also">Also: Beliefs, values and education (existentialist worldview)</p></td>
       </tr>
       <tr>
-        <th scope="row"><em>The Hour of the Star</em><span class="byline">Lispector &middot; Novella &middot; Brazil, 1977</span></th>
+        <th scope="row"><em>The Hour of the Star</em><span class="byline">Lispector &middot; Novella &middot; Brazil, 1977</span><div class="mini-cites">
+        <div class="mini-row"><span class="mini-style">APA</span><span class="mini-text">Lispector, C. (2011). <em>The hour of the star</em> (B. Moser, Trans.). New Directions. (Original work published 1977)</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+        <div class="mini-row"><span class="mini-style">MLA</span><span class="mini-text">Lispector, Clarice. <em>The Hour of the Star</em>. Translated by Benjamin Moser, New Directions, 2011.</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+      </div></th>
         <td><ul class="concept-list"><li><strong>Identity</strong> &mdash; Macab&eacute;a&rsquo;s invisible existence; the narrator&rsquo;s metafictional self.</li><li><strong>Representation</strong> &mdash; How the marginalised poor are represented; authorial ethics.</li><li><strong>Creativity</strong> &mdash; Metafiction; the act of writing as creation and exposure.</li></ul></td>
         <td><span class="gi gi-culture">Culture, identity and community</span><p>Class, gender, and regional identity (Northeast Brazil &rarr; Rio); the invisibility of poverty.</p><p class="also">Also: Politics, power and justice (gendered and economic power)</p></td>
       </tr>
       <tr>
-        <th scope="row"><em>Othello</em><span class="byline">Shakespeare &middot; Tragedy &middot; UK, 1622</span></th>
+        <th scope="row"><em>Othello</em><span class="byline">Shakespeare &middot; Tragedy &middot; UK, 1622</span><div class="mini-cites">
+        <div class="mini-row"><span class="mini-style">APA</span><span class="mini-text">Shakespeare, W. (2017). <em>Othello</em> (B. A. Mowat &amp; P. Werstine, Eds.). Folger Shakespeare Library. https://www.folger.edu/explore/shakespeares-works/othello/ (Original work published 1622)</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+        <div class="mini-row"><span class="mini-style">MLA</span><span class="mini-text">Shakespeare, William. <em>Othello</em>. Edited by Barbara A. Mowat and Paul Werstine, Folger Shakespeare Library, folger.edu/explore/shakespeares-works/othello/.</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+      </div></th>
         <td><ul class="concept-list"><li><strong>Identity</strong> &mdash; Othello&rsquo;s racial and cultural identity; outsider status in Venice.</li><li><strong>Transformation</strong> &mdash; From noble general to murderer through Iago&rsquo;s manipulation.</li><li><strong>Perspective</strong> &mdash; How characters perceive Othello differently; the politics of seeing.</li></ul></td>
         <td><span class="gi gi-politics">Politics, power and justice</span><p>Race, jealousy, and manipulation as instruments of power; gendered violence.</p><p class="also">Also: Culture, identity and community (the outsider in society)</p></td>
       </tr>
       <tr>
-        <th scope="row"><em>Selected Poems</em><span class="byline">T. S. Eliot &middot; Poetry &middot; US/UK, 1911&ndash;1930</span></th>
+        <th scope="row"><em>Selected Poems</em><span class="byline">T. S. Eliot &middot; Poetry &middot; US/UK, 1911&ndash;1930</span><div class="mini-cites">
+        <div class="mini-row"><span class="mini-style">APA</span><span class="mini-text">Eliot, T. S. (1963). <em>Collected poems, 1909&ndash;1962</em>. Harcourt, Brace &amp; World.</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+        <div class="mini-row"><span class="mini-style">MLA</span><span class="mini-text">Eliot, T. S. <em>Collected Poems, 1909&ndash;1962</em>. Harcourt, Brace &amp; World, 1963.</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+      </div></th>
         <td><ul class="concept-list"><li><strong>Identity</strong> &mdash; The fragmented modern self (Prufrock, Gerontion, the Magi).</li><li><strong>Transformation</strong> &mdash; Spiritual transformation in &lsquo;Journey of the Magi,&rsquo; &lsquo;The Hollow Men,&rsquo; &lsquo;Marina.&rsquo;</li><li><strong>Representation</strong> &mdash; Modernist representation of urban alienation and spiritual emptiness.</li></ul></td>
         <td><span class="gi gi-beliefs">Beliefs, values and education</span><p>Spiritual crisis, modernity vs. tradition, the secular and the sacred.</p><p class="also">Also: Art, creativity and the imagination (modernist innovation)</p></td>
       </tr>
       <tr>
-        <th scope="row"><em>The Woman in the Dunes</em><span class="byline">Abe &middot; Novel &middot; Japan, 1962</span></th>
+        <th scope="row"><em>The Woman in the Dunes</em><span class="byline">Abe &middot; Novel &middot; Japan, 1962</span><div class="mini-cites">
+        <div class="mini-row"><span class="mini-style">APA</span><span class="mini-text">Abe, K. (1991). <em>The woman in the dunes</em> (E. D. Saunders, Trans.). Vintage Books. (Original work published 1962)</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+        <div class="mini-row"><span class="mini-style">MLA</span><span class="mini-text">Abe, K&#333;b&#333;. <em>The Woman in the Dunes</em>. Translated by E. Dale Saunders, Vintage Books, 1991.</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+      </div></th>
         <td><ul class="concept-list"><li><strong>Identity</strong> &mdash; Niki&rsquo;s loss and recreation of self in captivity.</li><li><strong>Transformation</strong> &mdash; From urban entomologist to dune dweller; existential reorientation.</li><li><strong>Perspective</strong> &mdash; Existentialist questioning of freedom, conformity, and meaning.</li></ul></td>
         <td><span class="gi gi-science">Science, technology and the environment</span><p>Sand as nature shaping and trapping humans; environment as agent of change.</p><p class="also">Also: Politics, power and justice (the village&rsquo;s authority and individual free will)</p></td>
       </tr>
       <tr>
-        <th scope="row"><em>Selected Short Stories</em><span class="byline">Mansfield &middot; Short fiction &middot; NZ/UK, 1920&ndash;1923</span></th>
+        <th scope="row"><em>Selected Short Stories</em><span class="byline">Mansfield &middot; Short fiction &middot; NZ/UK, 1920&ndash;1923</span><div class="mini-cites">
+        <div class="mini-row"><span class="mini-style">APA</span><span class="mini-text">Mansfield, K. (1922). <em>The garden party and other stories</em>. Constable. https://www.gutenberg.org/ebooks/1429</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+        <div class="mini-row"><span class="mini-style">MLA</span><span class="mini-text">Mansfield, Katherine. <em>The Garden Party and Other Stories</em>. Constable, 1922. <em>Project Gutenberg</em>, gutenberg.org/ebooks/1429.</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+      </div></th>
         <td><ul class="concept-list"><li><strong>Identity</strong> &mdash; The self-deceiving and constrained self (Miss Brill, the Lady&rsquo;s Maid).</li><li><strong>Perspective</strong> &mdash; Free indirect discourse; the sudden epiphany that reframes a life.</li><li><strong>Representation</strong> &mdash; How class, gender, and ageing are rendered in modernist miniature.</li></ul></td>
         <td><span class="gi gi-culture">Culture, identity and community</span><p>Loneliness, class, and constrained female lives in the modern world.</p><p class="also">Also: Politics, power and justice (gender and servitude)</p></td>
       </tr>

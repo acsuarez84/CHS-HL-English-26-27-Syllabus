@@ -1553,3 +1553,125 @@ footer.site a, footer.site a:visited { color: var(--text); font-weight: 700; }
   .cite-row { grid-template-columns: 1fr; }
   .cite-style { justify-self: start; }
 }
+
+/* ---- Background emblem watermark ------------------------------------ */
+.bg-emblem {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: grid;
+  place-items: center;
+  pointer-events: none;
+  overflow: hidden;
+}
+.bg-emblem svg {
+  width: min(150vh, 150vw);
+  height: auto;
+  opacity: .07;
+}
+:root[data-theme="dark"] .bg-emblem svg { opacity: .10; }
+.bg-ring { fill: none; stroke: var(--text); stroke-width: 2.5; }
+.bg-thick { stroke-width: 5; }
+.bg-grid { fill: none; stroke: var(--text); stroke-width: 1.6; }
+
+/* Keep content legible above the watermark. */
+.wrap { position: relative; }
+
+/* ---- Globe labels ---------------------------------------------------- */
+.region-label {
+  text-anchor: middle;
+  font-family: var(--font-sans);
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: .06px;
+  fill: #ffffff;
+  paint-order: stroke fill;
+  stroke: rgba(0,0,0,.72);
+  stroke-width: 1.5px;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.region:hover .region-label,
+.region:focus .region-label { fill: #fff8c4; }
+.work-label {
+  text-anchor: middle;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 4.6px;
+  fill: #ffe9a8;
+  paint-order: stroke fill;
+  stroke: rgba(0,0,0,.8);
+  stroke-width: 1.3px;
+  stroke-linejoin: round;
+  pointer-events: none;
+}
+.pin-dot { fill: #ffd257; stroke: rgba(0,0,0,.7); stroke-width: .8; }
+.work-pin:hover .work-label { fill: #fff; }
+.work-pin:hover .pin-dot { fill: #fff; }
+.emblem-sub { font-size: 13px; letter-spacing: .22em; opacity: .75; }
+
+/* ---- Works-this-year strip ------------------------------------------- */
+.wgrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(255px, 1fr));
+  gap: 1rem;
+  margin: 1.2rem 0 2rem;
+}
+.wcard {
+  background: var(--card);
+  color: var(--card-text);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  box-shadow: var(--shadow-sm);
+}
+.wq {
+  display: inline-block;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  padding: .15rem .55rem;
+  border-radius: 999px;
+  background: var(--card-chip-bg);
+  color: var(--card-chip-text);
+}
+.wcard h3 { margin: .5rem 0 .3rem; font-size: 1.12rem; }
+.wmeta { margin: 0; color: var(--card-soft); font-size: .95rem; }
+.wtime { margin: .25rem 0 0; color: var(--card-soft); font-size: .88rem; font-weight: 700; }
+
+/* ---- Inline mini citations (small print, under each source) ---------- */
+.mini-cites {
+  margin: .55rem 0 .2rem;
+  padding-top: .45rem;
+  border-top: 1px dotted var(--card-line);
+}
+.mini-row {
+  display: grid;
+  grid-template-columns: 2.1em 1fr auto;
+  gap: .5em;
+  align-items: baseline;
+  margin-bottom: .25em;
+}
+.mini-style {
+  font-size: 6px;
+  font-weight: 800;
+  letter-spacing: .05em;
+  color: var(--card-soft);
+}
+.mini-text {
+  font-size: 6px;
+  line-height: 1.55;
+  color: var(--card-soft);
+  word-break: break-word;
+}
+.mini-copy {
+  font-size: 6px;
+  padding: .25em .6em;
+  border-radius: 5px;
+  line-height: 1.3;
+}
+/* Readable-size override, toggled by the button in the top bar. */
+:root[data-cites="large"] .mini-style,
+:root[data-cites="large"] .mini-text,
+:root[data-cites="large"] .mini-copy { font-size: .9rem; }
+:root[data-cites="large"] .mini-row { grid-template-columns: 3em 1fr auto; }

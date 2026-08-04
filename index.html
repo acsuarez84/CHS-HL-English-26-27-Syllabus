@@ -15,6 +15,22 @@
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 
+<div class="bg-emblem" aria-hidden="true">
+  <svg viewBox="0 0 400 400" focusable="false">
+    <circle cx="200" cy="200" r="192" class="bg-ring"/>
+    <circle cx="200" cy="200" r="170" class="bg-ring"/>
+    <circle cx="200" cy="200" r="132" class="bg-ring bg-thick"/>
+    <g class="bg-grid">
+      <ellipse cx="200" cy="200" rx="132" ry="132"/>
+      <ellipse cx="200" cy="200" rx="44" ry="132"/>
+      <ellipse cx="200" cy="200" rx="88" ry="132"/>
+      <line x1="68" y1="200" x2="332" y2="200"/>
+      <line x1="86" y1="134" x2="314" y2="134"/>
+      <line x1="86" y1="266" x2="314" y2="266"/>
+    </g>
+  </svg>
+</div>
+
 <div class="sticky-stack">
 <header class="topbar">
   <div class="topbar-inner">
@@ -45,6 +61,11 @@
     <button class="util-btn" id="read-aloud" type="button" aria-pressed="false"
             title="Read this page aloud">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 8.5a4 4 0 0 1 0 7"/><path d="M18.5 6a7.5 7.5 0 0 1 0 12"/></svg><span class="label">Read aloud</span>
+    </button>
+
+    <button class="util-btn" id="cite-size" type="button" aria-pressed="false"
+            title="Citations are set in 6px small print. Enlarge them to read.">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19 9 5l5 14"/><path d="M5.5 15h7"/><path d="M16 19l4-9 0 0"/></svg><span class="label">Bigger citations</span>
     </button>
 
     <button class="util-btn" id="theme-toggle" type="button" aria-pressed="false"
@@ -85,64 +106,78 @@
     </div>
 
     <div class="globe-stage">
-      <svg class="globe-svg" viewBox="0 0 420 460" role="img"
+      <svg class="globe-svg" viewBox="0 0 720 810" role="img"
            aria-labelledby="globe-title globe-desc">
         <title id="globe-title">IB Language and Literature HL &mdash; course navigator</title>
-        <desc id="globe-desc">A rotating globe. Each continent and major ocean links to a section
-        of the syllabus. The same links are listed below the globe.</desc>
+        <desc id="globe-desc">A rotating globe. Each continent and major ocean is labelled with a
+        section of the syllabus, and the six literary works are pinned to the countries they come
+        from. The same links are listed as cards below the globe.</desc>
         <defs>
-          <clipPath id="sphere-clip"><circle cx="210" cy="210" r="150"/></clipPath>
+          <clipPath id="sphere-clip"><circle cx="360" cy="360" r="300"/></clipPath>
           <radialGradient id="sea" cx="38%" cy="32%" r="78%">
             <stop offset="0" stop-color="#3f8fd0"/>
             <stop offset="0.65" stop-color="#1d5f96"/>
             <stop offset="1" stop-color="#0d3a5f"/>
           </radialGradient>
           <radialGradient id="sheen" cx="34%" cy="28%" r="72%">
-            <stop offset="0" stop-color="#ffffff" stop-opacity="0.34"/>
-            <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.05"/>
-            <stop offset="1" stop-color="#000018" stop-opacity="0.42"/>
+            <stop offset="0" stop-color="#ffffff" stop-opacity="0.30"/>
+            <stop offset="0.55" stop-color="#ffffff" stop-opacity="0.04"/>
+            <stop offset="1" stop-color="#000018" stop-opacity="0.40"/>
           </radialGradient>
         </defs>
 
-        <circle cx="210" cy="210" r="198" class="emblem-ring emblem-outer"/>
-        <circle cx="210" cy="210" r="178" class="emblem-ring emblem-inner"/>
-        <circle cx="210" cy="210" r="158" class="emblem-rim"/>
+        <circle cx="360" cy="360" r="348" class="emblem-ring emblem-outer"/>
+        <circle cx="360" cy="360" r="330" class="emblem-ring emblem-inner"/>
+        <circle cx="360" cy="360" r="314" class="emblem-rim"/>
 
-        <circle cx="210" cy="210" r="150" fill="url(#sea)"/>
+        <circle cx="360" cy="360" r="300" fill="url(#sea)"/>
         <g clip-path="url(#sphere-clip)">
-          <g class="spin" transform="translate(60,60) scale(1.6667)">
+          <g class="spin" transform="translate(60,60) scale(3.3333)">
             <g class="spin-inner">
       <g transform="translate(0,0)">
-        <a href="nonliterary.html" class="region" aria-label="North America &mdash; Non-Literary Texts"><path d="M18,30 L45,20 L80,18 L105,22 L112,35 L103,45 L99,58 L97,66 L88,60 L80,58 L92,76 L85,72 L72,62 L62,48 L58,38 L35,35 Z" class="land land-north-america"><title>North America &mdash; Non-Literary Texts</title></path></a>
-        <a href="works.html" class="region" aria-label="South America &mdash; Literary Works"><path d="M99,76 L115,73 L128,80 L145,95 L140,110 L132,125 L125,140 L118,145 L112,132 L105,115 L100,100 L96,88 Z" class="land land-south-america"><title>South America &mdash; Literary Works</title></path></a>
-        <a href="concepts.html" class="region" aria-label="Europe &mdash; Concepts &amp; Global Issues"><path d="M172,42 L180,30 L195,22 L215,20 L220,32 L210,42 L200,50 L188,52 L178,48 Z" class="land land-europe"><title>Europe &mdash; Concepts &amp; Global Issues</title></path></a>
-        <a href="pairings.html" class="region" aria-label="Africa &mdash; IO Pairings"><path d="M168,58 L190,55 L212,58 L222,62 L232,80 L222,95 L215,110 L205,122 L195,118 L188,105 L180,92 L172,78 L165,68 Z" class="land land-africa"><title>Africa &mdash; IO Pairings</title></path></a>
-        <a href="year1.html" class="region" aria-label="Asia &mdash; Year 1 &middot; 2026&ndash;27"><path d="M220,20 L260,12 L300,15 L330,22 L345,35 L335,48 L320,58 L300,70 L285,78 L270,72 L255,62 L240,52 L228,40 L222,28 Z" class="land land-asia"><title>Asia &mdash; Year 1 &middot; 2026&ndash;27</title></path></a>
-        <a href="year2.html" class="region" aria-label="Oceania &mdash; Year 2 &middot; 2027&ndash;28"><path d="M295,105 L315,101 L330,108 L332,120 L320,128 L305,124 L296,115 Z" class="land land-oceania"><title>Oceania &mdash; Year 2 &middot; 2027&ndash;28</title></path></a>
-        <a href="assessments.html" class="region" aria-label="Antarctica &mdash; Assessments"><path d="M12,163 L348,163 L348,177 L12,177 Z" class="land land-antarctica"><title>Antarctica &mdash; Assessments</title></path></a>
-        <a href="eliot.html" class="region ocean" aria-label="Pacific Ocean &mdash; Eliot &mdash; 19 Poems"><circle cx="330" cy="95" r="11" class="ocean-dot"/><title>Pacific Ocean &mdash; Eliot &mdash; 19 Poems</title></a>
-        <a href="questions.html" class="region ocean" aria-label="Atlantic Ocean &mdash; Question Banks"><circle cx="155" cy="60" r="11" class="ocean-dot"/><title>Atlantic Ocean &mdash; Question Banks</title></a>
-        <a href="citations.html" class="region ocean" aria-label="Indian Ocean &mdash; Citations &mdash; APA &amp; MLA"><circle cx="255" cy="110" r="11" class="ocean-dot"/><title>Indian Ocean &mdash; Citations &mdash; APA &amp; MLA</title></a>
+        <a href="nonliterary.html" class="region" aria-label="North America &mdash; Non-Literary Texts"><path d="M18,30 L45,20 L80,18 L105,22 L112,35 L103,45 L99,58 L97,66 L88,60 L80,58 L92,76 L85,72 L72,62 L62,48 L58,38 L35,35 Z" class="land land-north-america"/><text x="60" y="40" class="region-label">Non-Literary</text><title>North America &mdash; Non-Literary Texts</title></a>
+        <a href="works.html" class="region" aria-label="South America &mdash; Literary Works"><path d="M99,76 L115,73 L128,80 L145,95 L140,110 L132,125 L125,140 L118,145 L112,132 L105,115 L100,100 L96,88 Z" class="land land-south-america"/><text x="120" y="106" class="region-label">Literary Works</text><title>South America &mdash; Literary Works</title></a>
+        <a href="concepts.html" class="region" aria-label="Europe &mdash; Concepts &amp; Global Issues"><path d="M172,42 L180,30 L195,22 L215,20 L220,32 L210,42 L200,50 L188,52 L178,48 Z" class="land land-europe"/><text x="196" y="33" class="region-label">Concepts</text><title>Europe &mdash; Concepts &amp; Global Issues</title></a>
+        <a href="pairings.html" class="region" aria-label="Africa &mdash; IO Pairings"><path d="M168,58 L190,55 L212,58 L222,62 L232,80 L222,95 L215,110 L205,122 L195,118 L188,105 L180,92 L172,78 L165,68 Z" class="land land-africa"/><text x="197" y="90" class="region-label">IO Pairings</text><title>Africa &mdash; IO Pairings</title></a>
+        <a href="year1.html" class="region" aria-label="Asia &mdash; Year 1 &middot; 2026&ndash;27"><path d="M220,20 L260,12 L300,15 L330,22 L345,35 L335,48 L320,58 L300,70 L285,78 L270,72 L255,62 L240,52 L228,40 L222,28 Z" class="land land-asia"/><text x="283" y="38" class="region-label">Year 1</text><title>Asia &mdash; Year 1 &middot; 2026&ndash;27</title></a>
+        <a href="year2.html" class="region" aria-label="Oceania &mdash; Year 2 &middot; 2027&ndash;28"><path d="M295,105 L315,101 L330,108 L332,120 L320,128 L305,124 L296,115 Z" class="land land-oceania"/><text x="313" y="113" class="region-label">Year 2</text><title>Oceania &mdash; Year 2 &middot; 2027&ndash;28</title></a>
+        <a href="assessments.html" class="region" aria-label="Antarctica &mdash; Assessments"><path d="M12,163 L348,163 L348,177 L12,177 Z" class="land land-antarctica"/><text x="180" y="171" class="region-label">Assessments</text><title>Antarctica &mdash; Assessments</title></a>
+        <a href="eliot.html" class="region" aria-label="Pacific Ocean &mdash; Eliot &mdash; 19 Poems"><circle cx="330" cy="88" r="6" class="ocean-dot"/><text x="330" y="95" class="region-label">Eliot Poems</text><title>Pacific Ocean &mdash; Eliot &mdash; 19 Poems</title></a>
+        <a href="questions.html" class="region" aria-label="Atlantic Ocean &mdash; Question Banks"><circle cx="150" cy="53" r="6" class="ocean-dot"/><text x="150" y="60" class="region-label">Question Banks</text><title>Atlantic Ocean &mdash; Question Banks</title></a>
+        <a href="citations.html" class="region" aria-label="Indian Ocean &mdash; Citations &mdash; APA &amp; MLA"><circle cx="256" cy="113" r="6" class="ocean-dot"/><text x="256" y="120" class="region-label">Citations</text><title>Indian Ocean &mdash; Citations &mdash; APA &amp; MLA</title></a>
+        <a href="works.html" class="work-pin" aria-label="The Tunnel &mdash; Argentina"><circle cx="122" cy="128" r="2.4" class="pin-dot"/><text x="122" y="123.5" class="work-label">The Tunnel</text><title>The Tunnel &mdash; Argentina</title></a>
+        <a href="works.html" class="work-pin" aria-label="Hour of the Star &mdash; Brazil"><circle cx="140" cy="113" r="2.4" class="pin-dot"/><text x="140" y="108.5" class="work-label">Hour of the Star</text><title>Hour of the Star &mdash; Brazil</title></a>
+        <a href="works.html" class="work-pin" aria-label="Othello &mdash; England"><circle cx="181" cy="30" r="2.4" class="pin-dot"/><text x="181" y="25.5" class="work-label">Othello</text><title>Othello &mdash; England</title></a>
+        <a href="works.html" class="work-pin" aria-label="Eliot &mdash; U.S. / U.K."><circle cx="108" cy="50" r="2.4" class="pin-dot"/><text x="108" y="45.5" class="work-label">Eliot</text><title>Eliot &mdash; U.S. / U.K.</title></a>
+        <a href="works.html" class="work-pin" aria-label="Woman in the Dunes &mdash; Japan"><circle cx="320" cy="57" r="2.4" class="pin-dot"/><text x="320" y="52.5" class="work-label">Woman in the Dunes</text><title>Woman in the Dunes &mdash; Japan</title></a>
+        <a href="works.html" class="work-pin" aria-label="Mansfield &mdash; New Zealand"><circle cx="350" cy="134" r="2.4" class="pin-dot"/><text x="350" y="129.5" class="work-label">Mansfield</text><title>Mansfield &mdash; New Zealand</title></a>
       </g>
-      <g transform="translate(600,0)">
-        <a href="nonliterary.html" class="region" aria-label="North America &mdash; Non-Literary Texts"><path d="M18,30 L45,20 L80,18 L105,22 L112,35 L103,45 L99,58 L97,66 L88,60 L80,58 L92,76 L85,72 L72,62 L62,48 L58,38 L35,35 Z" class="land land-north-america"><title>North America &mdash; Non-Literary Texts</title></path></a>
-        <a href="works.html" class="region" aria-label="South America &mdash; Literary Works"><path d="M99,76 L115,73 L128,80 L145,95 L140,110 L132,125 L125,140 L118,145 L112,132 L105,115 L100,100 L96,88 Z" class="land land-south-america"><title>South America &mdash; Literary Works</title></path></a>
-        <a href="concepts.html" class="region" aria-label="Europe &mdash; Concepts &amp; Global Issues"><path d="M172,42 L180,30 L195,22 L215,20 L220,32 L210,42 L200,50 L188,52 L178,48 Z" class="land land-europe"><title>Europe &mdash; Concepts &amp; Global Issues</title></path></a>
-        <a href="pairings.html" class="region" aria-label="Africa &mdash; IO Pairings"><path d="M168,58 L190,55 L212,58 L222,62 L232,80 L222,95 L215,110 L205,122 L195,118 L188,105 L180,92 L172,78 L165,68 Z" class="land land-africa"><title>Africa &mdash; IO Pairings</title></path></a>
-        <a href="year1.html" class="region" aria-label="Asia &mdash; Year 1 &middot; 2026&ndash;27"><path d="M220,20 L260,12 L300,15 L330,22 L345,35 L335,48 L320,58 L300,70 L285,78 L270,72 L255,62 L240,52 L228,40 L222,28 Z" class="land land-asia"><title>Asia &mdash; Year 1 &middot; 2026&ndash;27</title></path></a>
-        <a href="year2.html" class="region" aria-label="Oceania &mdash; Year 2 &middot; 2027&ndash;28"><path d="M295,105 L315,101 L330,108 L332,120 L320,128 L305,124 L296,115 Z" class="land land-oceania"><title>Oceania &mdash; Year 2 &middot; 2027&ndash;28</title></path></a>
-        <a href="assessments.html" class="region" aria-label="Antarctica &mdash; Assessments"><path d="M12,163 L348,163 L348,177 L12,177 Z" class="land land-antarctica"><title>Antarctica &mdash; Assessments</title></path></a>
-        <a href="eliot.html" class="region ocean" aria-label="Pacific Ocean &mdash; Eliot &mdash; 19 Poems"><circle cx="330" cy="95" r="11" class="ocean-dot"/><title>Pacific Ocean &mdash; Eliot &mdash; 19 Poems</title></a>
-        <a href="questions.html" class="region ocean" aria-label="Atlantic Ocean &mdash; Question Banks"><circle cx="155" cy="60" r="11" class="ocean-dot"/><title>Atlantic Ocean &mdash; Question Banks</title></a>
-        <a href="citations.html" class="region ocean" aria-label="Indian Ocean &mdash; Citations &mdash; APA &amp; MLA"><circle cx="255" cy="110" r="11" class="ocean-dot"/><title>Indian Ocean &mdash; Citations &mdash; APA &amp; MLA</title></a>
+      <g transform="translate(360,0)">
+        <a href="nonliterary.html" class="region" aria-label="North America &mdash; Non-Literary Texts"><path d="M18,30 L45,20 L80,18 L105,22 L112,35 L103,45 L99,58 L97,66 L88,60 L80,58 L92,76 L85,72 L72,62 L62,48 L58,38 L35,35 Z" class="land land-north-america"/><text x="60" y="40" class="region-label">Non-Literary</text><title>North America &mdash; Non-Literary Texts</title></a>
+        <a href="works.html" class="region" aria-label="South America &mdash; Literary Works"><path d="M99,76 L115,73 L128,80 L145,95 L140,110 L132,125 L125,140 L118,145 L112,132 L105,115 L100,100 L96,88 Z" class="land land-south-america"/><text x="120" y="106" class="region-label">Literary Works</text><title>South America &mdash; Literary Works</title></a>
+        <a href="concepts.html" class="region" aria-label="Europe &mdash; Concepts &amp; Global Issues"><path d="M172,42 L180,30 L195,22 L215,20 L220,32 L210,42 L200,50 L188,52 L178,48 Z" class="land land-europe"/><text x="196" y="33" class="region-label">Concepts</text><title>Europe &mdash; Concepts &amp; Global Issues</title></a>
+        <a href="pairings.html" class="region" aria-label="Africa &mdash; IO Pairings"><path d="M168,58 L190,55 L212,58 L222,62 L232,80 L222,95 L215,110 L205,122 L195,118 L188,105 L180,92 L172,78 L165,68 Z" class="land land-africa"/><text x="197" y="90" class="region-label">IO Pairings</text><title>Africa &mdash; IO Pairings</title></a>
+        <a href="year1.html" class="region" aria-label="Asia &mdash; Year 1 &middot; 2026&ndash;27"><path d="M220,20 L260,12 L300,15 L330,22 L345,35 L335,48 L320,58 L300,70 L285,78 L270,72 L255,62 L240,52 L228,40 L222,28 Z" class="land land-asia"/><text x="283" y="38" class="region-label">Year 1</text><title>Asia &mdash; Year 1 &middot; 2026&ndash;27</title></a>
+        <a href="year2.html" class="region" aria-label="Oceania &mdash; Year 2 &middot; 2027&ndash;28"><path d="M295,105 L315,101 L330,108 L332,120 L320,128 L305,124 L296,115 Z" class="land land-oceania"/><text x="313" y="113" class="region-label">Year 2</text><title>Oceania &mdash; Year 2 &middot; 2027&ndash;28</title></a>
+        <a href="assessments.html" class="region" aria-label="Antarctica &mdash; Assessments"><path d="M12,163 L348,163 L348,177 L12,177 Z" class="land land-antarctica"/><text x="180" y="171" class="region-label">Assessments</text><title>Antarctica &mdash; Assessments</title></a>
+        <a href="eliot.html" class="region" aria-label="Pacific Ocean &mdash; Eliot &mdash; 19 Poems"><circle cx="330" cy="88" r="6" class="ocean-dot"/><text x="330" y="95" class="region-label">Eliot Poems</text><title>Pacific Ocean &mdash; Eliot &mdash; 19 Poems</title></a>
+        <a href="questions.html" class="region" aria-label="Atlantic Ocean &mdash; Question Banks"><circle cx="150" cy="53" r="6" class="ocean-dot"/><text x="150" y="60" class="region-label">Question Banks</text><title>Atlantic Ocean &mdash; Question Banks</title></a>
+        <a href="citations.html" class="region" aria-label="Indian Ocean &mdash; Citations &mdash; APA &amp; MLA"><circle cx="256" cy="113" r="6" class="ocean-dot"/><text x="256" y="120" class="region-label">Citations</text><title>Indian Ocean &mdash; Citations &mdash; APA &amp; MLA</title></a>
+        <a href="works.html" class="work-pin" aria-label="The Tunnel &mdash; Argentina"><circle cx="122" cy="128" r="2.4" class="pin-dot"/><text x="122" y="123.5" class="work-label">The Tunnel</text><title>The Tunnel &mdash; Argentina</title></a>
+        <a href="works.html" class="work-pin" aria-label="Hour of the Star &mdash; Brazil"><circle cx="140" cy="113" r="2.4" class="pin-dot"/><text x="140" y="108.5" class="work-label">Hour of the Star</text><title>Hour of the Star &mdash; Brazil</title></a>
+        <a href="works.html" class="work-pin" aria-label="Othello &mdash; England"><circle cx="181" cy="30" r="2.4" class="pin-dot"/><text x="181" y="25.5" class="work-label">Othello</text><title>Othello &mdash; England</title></a>
+        <a href="works.html" class="work-pin" aria-label="Eliot &mdash; U.S. / U.K."><circle cx="108" cy="50" r="2.4" class="pin-dot"/><text x="108" y="45.5" class="work-label">Eliot</text><title>Eliot &mdash; U.S. / U.K.</title></a>
+        <a href="works.html" class="work-pin" aria-label="Woman in the Dunes &mdash; Japan"><circle cx="320" cy="57" r="2.4" class="pin-dot"/><text x="320" y="52.5" class="work-label">Woman in the Dunes</text><title>Woman in the Dunes &mdash; Japan</title></a>
+        <a href="works.html" class="work-pin" aria-label="Mansfield &mdash; New Zealand"><circle cx="350" cy="134" r="2.4" class="pin-dot"/><text x="350" y="129.5" class="work-label">Mansfield</text><title>Mansfield &mdash; New Zealand</title></a>
       </g>
             </g>
           </g>
         </g>
-        <circle cx="210" cy="210" r="150" fill="url(#sheen)" class="sheen"/>
-        <circle cx="210" cy="210" r="150" class="globe-edge"/>
+        <circle cx="360" cy="360" r="300" fill="url(#sheen)" class="sheen"/>
+        <circle cx="360" cy="360" r="300" class="globe-edge"/>
 
-        <text x="210" y="432" class="emblem-word">LANGUAGE &amp; LITERATURE &middot; HIGHER LEVEL</text>
+        <text x="360" y="742" class="emblem-word">LANGUAGE &amp; LITERATURE</text>
+        <text x="360" y="782" class="emblem-word emblem-sub">HIGHER LEVEL &middot; 2026&ndash;2028</text>
       </svg>
       <p class="globe-hint">Every continent and ocean is a section. Hover to slow the globe,
       click to travel &mdash; or use the cards below.</p>

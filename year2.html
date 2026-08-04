@@ -15,6 +15,22 @@
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 
+<div class="bg-emblem" aria-hidden="true">
+  <svg viewBox="0 0 400 400" focusable="false">
+    <circle cx="200" cy="200" r="192" class="bg-ring"/>
+    <circle cx="200" cy="200" r="170" class="bg-ring"/>
+    <circle cx="200" cy="200" r="132" class="bg-ring bg-thick"/>
+    <g class="bg-grid">
+      <ellipse cx="200" cy="200" rx="132" ry="132"/>
+      <ellipse cx="200" cy="200" rx="44" ry="132"/>
+      <ellipse cx="200" cy="200" rx="88" ry="132"/>
+      <line x1="68" y1="200" x2="332" y2="200"/>
+      <line x1="86" y1="134" x2="314" y2="134"/>
+      <line x1="86" y1="266" x2="314" y2="266"/>
+    </g>
+  </svg>
+</div>
+
 <div class="sticky-stack">
 <header class="topbar">
   <div class="topbar-inner">
@@ -45,6 +61,11 @@
     <button class="util-btn" id="read-aloud" type="button" aria-pressed="false"
             title="Read this page aloud">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 8.5a4 4 0 0 1 0 7"/><path d="M18.5 6a7.5 7.5 0 0 1 0 12"/></svg><span class="label">Read aloud</span>
+    </button>
+
+    <button class="util-btn" id="cite-size" type="button" aria-pressed="false"
+            title="Citations are set in 6px small print. Enlarge them to read.">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19 9 5l5 14"/><path d="M5.5 15h7"/><path d="M16 19l4-9 0 0"/></svg><span class="label">Bigger citations</span>
     </button>
 
     <button class="util-btn" id="theme-toggle" type="button" aria-pressed="false"
@@ -78,8 +99,38 @@
 </div>
 <main id="main" tabindex="-1">
   <div class="wrap">
-    <div class="page-head"><span class="eyebrow">Section 6</span><h1>Year 2 &mdash; Senior Year (2027&ndash;2028)</h1><p class="lede">Tentative and subject to change. Year 2 culminates in the external IB exams in May 2028. The HL Essay is submitted before Winter Break.</p></div>
+    <div class="page-head"><span class="eyebrow">Section 7</span><h1>Year 2 &mdash; Senior Year (2027&ndash;2028)</h1><p class="lede">Tentative and subject to change. Year 2 culminates in the external IB exams in May 2028. The HL Essay is submitted before Winter Break.</p></div>
 
+    <h2 id="works-this-year">Literary works studied this year (2 of 6)</h2>
+    <div class="wgrid">
+    <div class="wcard">
+      <span class="wq">Q1</span>
+      <h3><em>Othello</em></h3>
+      <p class="wmeta">William Shakespeare &middot; England, 1622 &middot; Tragedy</p>
+      <p class="wtime">3 weeks</p>
+      <div class="mini-cites">
+        <div class="mini-row"><span class="mini-style">APA</span><span class="mini-text">Shakespeare, W. (2017). <em>Othello</em> (B. A. Mowat &amp; P. Werstine, Eds.). Folger Shakespeare Library. https://www.folger.edu/explore/shakespeares-works/othello/ (Original work published 1622)</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+        <div class="mini-row"><span class="mini-style">MLA</span><span class="mini-text">Shakespeare, William. <em>Othello</em>. Edited by Barbara A. Mowat and Paul Werstine, Folger Shakespeare Library, folger.edu/explore/shakespeares-works/othello/.</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+      </div>
+    </div>
+    <div class="wcard">
+      <span class="wq">Q2</span>
+      <h3><em>Selected Poems (19)</em></h3>
+      <p class="wmeta">T. S. Eliot &middot; U.S. / U.K., 1911&ndash;30 &middot; Poetry</p>
+      <p class="wtime">~2 weeks</p>
+      <div class="mini-cites">
+        <div class="mini-row"><span class="mini-style">APA</span><span class="mini-text">Eliot, T. S. (1963). <em>Collected poems, 1909&ndash;1962</em>. Harcourt, Brace &amp; World.</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+        <div class="mini-row"><span class="mini-style">MLA</span><span class="mini-text">Eliot, T. S. <em>Collected Poems, 1909&ndash;1962</em>. Harcourt, Brace &amp; World, 1963.</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+      </div>
+    </div>
+    </div>
+    <div class="callout">
+      <p><strong>Why only two.</strong> Four of the six works are read in Year 1 so that every
+      student has a full menu of texts to choose from for the Individual Oral in spring 2027.
+      Year 2 adds <em>Othello</em> and Eliot, then spends its weight on Paper 1, Paper 2 and the
+      HL Essay &mdash; all of which draw on all six.</p>
+    </div>
+    <h2 id="quarters">Quarter by quarter</h2>
     <div class="unit-band">
       <div class="u-label">Q1</div>
       <h2>Time &amp; Space</h2>

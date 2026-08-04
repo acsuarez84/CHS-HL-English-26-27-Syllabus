@@ -432,3 +432,60 @@
     any.forEach(function (n) { n.classList.remove("tts-reading"); });
   }
 })();
+
+/* ---- Copy-to-clipboard for citations (all pages) ---------------------- */
+(function () {
+  function textOf(btn) {
+    var row = btn.closest('.cite-row') || btn.closest('.mini-row');
+    if (!row) return '';
+    var t = row.querySelector('.cite-text, .mini-text');
+    if (!t) return '';
+    return (t.innerText || t.textContent).replace(/\s+/g, ' ').trim();
+  }
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('.copy-btn');
+    if (!btn) return;
+    var txt = textOf(btn);
+    if (!txt) return;
+    var done = function () {
+      var old = btn.dataset.label || btn.textContent;
+      btn.dataset.label = old;
+      btn.textContent = 'Copied';
+      btn.classList.add('copied');
+      setTimeout(function () {
+        btn.textContent = btn.dataset.label;
+        btn.classList.remove('copied');
+      }, 1500);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(txt).then(done, done);
+    } else {
+      var ta = document.createElement('textarea');
+      ta.value = txt; document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); } catch (err) {}
+      document.body.removeChild(ta); done();
+    }
+  });
+})();
+
+/* ---- Citation size toggle -------------------------------------------- */
+(function () {
+  var KEY = 'chs-ib-cites';
+  var btn = document.getElementById('cite-size');
+  if (!btn) return;
+  function apply(state) {
+    var big = state === 'large';
+    document.documentElement.setAttribute('data-cites', big ? 'large' : 'small');
+    btn.setAttribute('aria-pressed', big ? 'true' : 'false');
+    var l = btn.querySelector('.label');
+    if (l) l.textContent = big ? 'Small citations' : 'Bigger citations';
+  }
+  var stored = null;
+  try { stored = localStorage.getItem(KEY); } catch (e) {}
+  apply(stored === 'large' ? 'large' : 'small');
+  btn.addEventListener('click', function () {
+    var next = document.documentElement.getAttribute('data-cites') === 'large' ? 'small' : 'large';
+    try { localStorage.setItem(KEY, next); } catch (e) {}
+    apply(next);
+  });
+})();

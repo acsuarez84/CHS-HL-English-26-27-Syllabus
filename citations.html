@@ -15,6 +15,22 @@
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 
+<div class="bg-emblem" aria-hidden="true">
+  <svg viewBox="0 0 400 400" focusable="false">
+    <circle cx="200" cy="200" r="192" class="bg-ring"/>
+    <circle cx="200" cy="200" r="170" class="bg-ring"/>
+    <circle cx="200" cy="200" r="132" class="bg-ring bg-thick"/>
+    <g class="bg-grid">
+      <ellipse cx="200" cy="200" rx="132" ry="132"/>
+      <ellipse cx="200" cy="200" rx="44" ry="132"/>
+      <ellipse cx="200" cy="200" rx="88" ry="132"/>
+      <line x1="68" y1="200" x2="332" y2="200"/>
+      <line x1="86" y1="134" x2="314" y2="134"/>
+      <line x1="86" y1="266" x2="314" y2="266"/>
+    </g>
+  </svg>
+</div>
+
 <div class="sticky-stack">
 <header class="topbar">
   <div class="topbar-inner">
@@ -45,6 +61,11 @@
     <button class="util-btn" id="read-aloud" type="button" aria-pressed="false"
             title="Read this page aloud">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 8.5a4 4 0 0 1 0 7"/><path d="M18.5 6a7.5 7.5 0 0 1 0 12"/></svg><span class="label">Read aloud</span>
+    </button>
+
+    <button class="util-btn" id="cite-size" type="button" aria-pressed="false"
+            title="Citations are set in 6px small print. Enlarge them to read.">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19 9 5l5 14"/><path d="M5.5 15h7"/><path d="M16 19l4-9 0 0"/></svg><span class="label">Bigger citations</span>
     </button>
 
     <button class="util-btn" id="theme-toggle" type="button" aria-pressed="false"
@@ -153,15 +174,6 @@
           <p class="cite-text">Chapman, Tracy. <em>Tracy Chapman</em>. Elektra Records, 1988.</p>
           <button class="copy-btn" type="button" aria-label="Copy the MLA citation for Tracy Chapman &mdash; <em>Tracy Chapman</em>">Copy</button></div>
       </div>
-      <div class="cite">
-        <h3>&ldquo;Fast Car&rdquo; (single track)</h3>
-        <div class="cite-row"><span class="cite-style">APA 7</span>
-          <p class="cite-text">Chapman, T. (1988). Fast car [Song]. On <em>Tracy Chapman</em>. Elektra Records.</p>
-          <button class="copy-btn" type="button" aria-label="Copy the APA citation for &ldquo;Fast Car&rdquo; (single track)">Copy</button></div>
-        <div class="cite-row"><span class="cite-style">MLA 9</span>
-          <p class="cite-text">Chapman, Tracy. &ldquo;Fast Car.&rdquo; <em>Tracy Chapman</em>, Elektra Records, 1988.</p>
-          <button class="copy-btn" type="button" aria-label="Copy the MLA citation for &ldquo;Fast Car&rdquo; (single track)">Copy</button></div>
-      </div>
     </section>
     <section class="cite-group">
       <h2>Photography &mdash; Dorothea Lange</h2>
@@ -193,13 +205,13 @@
           <button class="copy-btn" type="button" aria-label="Copy the MLA citation for Toward Los Angeles, 1937">Copy</button></div>
       </div>
       <div class="cite">
-        <h3>Whole body of work</h3>
+        <h3>Lange &mdash; whole body of work</h3>
         <div class="cite-row"><span class="cite-style">APA 7</span>
           <p class="cite-text">Lange, D. (1933&ndash;1938). <em>Photographs</em> [Photographs]. The Museum of Modern Art. https://www.moma.org/artists/3373</p>
-          <button class="copy-btn" type="button" aria-label="Copy the APA citation for Whole body of work">Copy</button></div>
+          <button class="copy-btn" type="button" aria-label="Copy the APA citation for Lange &mdash; whole body of work">Copy</button></div>
         <div class="cite-row"><span class="cite-style">MLA 9</span>
           <p class="cite-text">Lange, Dorothea. <em>Photographs</em>. 1933&ndash;1938, Museum of Modern Art, moma.org/artists/3373.</p>
-          <button class="copy-btn" type="button" aria-label="Copy the MLA citation for Whole body of work">Copy</button></div>
+          <button class="copy-btn" type="button" aria-label="Copy the MLA citation for Lange &mdash; whole body of work">Copy</button></div>
       </div>
     </section>
     <section class="cite-group">
@@ -269,6 +281,24 @@
         <div class="cite-row"><span class="cite-style">MLA 9</span>
           <p class="cite-text">Hopper, Edward. <em>Early Sunday Morning</em>. 1930, Whitney Museum of American Art, whitney.org/collection/works/46345.</p>
           <button class="copy-btn" type="button" aria-label="Copy the MLA citation for Early Sunday Morning, 1930">Copy</button></div>
+      </div>
+      <div class="cite">
+        <h3>Room in New York, 1932</h3>
+        <div class="cite-row"><span class="cite-style">APA 7</span>
+          <p class="cite-text">Hopper, E. (1932). <em>Room in New York</em> [Painting]. Sheldon Museum of Art.</p>
+          <button class="copy-btn" type="button" aria-label="Copy the APA citation for Room in New York, 1932">Copy</button></div>
+        <div class="cite-row"><span class="cite-style">MLA 9</span>
+          <p class="cite-text">Hopper, Edward. <em>Room in New York</em>. 1932, Sheldon Museum of Art.</p>
+          <button class="copy-btn" type="button" aria-label="Copy the MLA citation for Room in New York, 1932">Copy</button></div>
+      </div>
+      <div class="cite">
+        <h3>Morning Sun, 1952</h3>
+        <div class="cite-row"><span class="cite-style">APA 7</span>
+          <p class="cite-text">Hopper, E. (1952). <em>Morning sun</em> [Painting]. Columbus Museum of Art.</p>
+          <button class="copy-btn" type="button" aria-label="Copy the APA citation for Morning Sun, 1952">Copy</button></div>
+        <div class="cite-row"><span class="cite-style">MLA 9</span>
+          <p class="cite-text">Hopper, Edward. <em>Morning Sun</em>. 1952, Columbus Museum of Art.</p>
+          <button class="copy-btn" type="button" aria-label="Copy the MLA citation for Morning Sun, 1952">Copy</button></div>
       </div>
       <div class="cite">
         <h3>New York Movie, 1939</h3>
@@ -375,10 +405,10 @@
       <div class="cite">
         <h3>Frederick Douglass, 1852</h3>
         <div class="cite-row"><span class="cite-style">APA 7</span>
-          <p class="cite-text">Douglass, F. (1852, July 5). <em>What to the slave is the Fourth of July?</em> [Speech]. Corinthian Hall, Rochester, NY, United States. https://www.americanyawp.com/reader/democracy-in-america/frederick-douglass-what-to-the-slave-is-the-fourth-of-july-1852/</p>
+          <p class="cite-text">Douglass, F. (1852, July 5). <em>What to the slave is the Fourth of July?</em> [Speech]. Corinthian Hall, Rochester, NY, United States.</p>
           <button class="copy-btn" type="button" aria-label="Copy the APA citation for Frederick Douglass, 1852">Copy</button></div>
         <div class="cite-row"><span class="cite-style">MLA 9</span>
-          <p class="cite-text">Douglass, Frederick. &ldquo;What to the Slave Is the Fourth of July?&rdquo; 5 July 1852, Corinthian Hall, Rochester, NY. <em>The American Yawp Reader</em>, americanyawp.com/reader/democracy-in-america/frederick-douglass-what-to-the-slave-is-the-fourth-of-july-1852/.</p>
+          <p class="cite-text">Douglass, Frederick. &ldquo;What to the Slave Is the Fourth of July?&rdquo; 5 July 1852, Corinthian Hall, Rochester, NY. <em>The American Yawp Reader</em>.</p>
           <button class="copy-btn" type="button" aria-label="Copy the MLA citation for Frederick Douglass, 1852">Copy</button></div>
       </div>
       <div class="cite">
@@ -402,10 +432,10 @@
       <div class="cite">
         <h3>Greta Thunberg, 2019</h3>
         <div class="cite-row"><span class="cite-style">APA 7</span>
-          <p class="cite-text">Thunberg, G. (2019, September 23). <em>Transcript: Greta Thunberg&rsquo;s speech at the U.N. Climate Action Summit</em> [Speech transcript]. NPR. https://www.npr.org/2019/09/23/763452863/transcript-greta-thunbergs-speech-at-the-u-n-climate-action-summit</p>
+          <p class="cite-text">Thunberg, G. (2019, September 23). <em>Transcript: Greta Thunberg&rsquo;s speech at the U.N. Climate Action Summit</em> [Speech transcript]. NPR.</p>
           <button class="copy-btn" type="button" aria-label="Copy the APA citation for Greta Thunberg, 2019">Copy</button></div>
         <div class="cite-row"><span class="cite-style">MLA 9</span>
-          <p class="cite-text">Thunberg, Greta. &ldquo;Transcript: Greta Thunberg&rsquo;s Speech at the U.N. Climate Action Summit.&rdquo; 23 Sept. 2019. <em>NPR</em>, npr.org/2019/09/23/763452863/.</p>
+          <p class="cite-text">Thunberg, Greta. &ldquo;Transcript: Greta Thunberg&rsquo;s Speech at the U.N. Climate Action Summit.&rdquo; 23 Sept. 2019. <em>NPR</em>.</p>
           <button class="copy-btn" type="button" aria-label="Copy the MLA citation for Greta Thunberg, 2019">Copy</button></div>
       </div>
     </section>
@@ -442,6 +472,15 @@
           <button class="copy-btn" type="button" aria-label="Copy the MLA citation for NASA, Climate Change">Copy</button></div>
       </div>
       <div class="cite">
+        <h3>NOAA, Climate</h3>
+        <div class="cite-row"><span class="cite-style">APA 7</span>
+          <p class="cite-text">National Oceanic and Atmospheric Administration. (n.d.). <em>Climate</em>. Retrieved August 4, 2026, from https://www.noaa.gov/climate</p>
+          <button class="copy-btn" type="button" aria-label="Copy the APA citation for NOAA, Climate">Copy</button></div>
+        <div class="cite-row"><span class="cite-style">MLA 9</span>
+          <p class="cite-text">&ldquo;Climate.&rdquo; <em>NOAA</em>, noaa.gov/climate. Accessed 4 Aug. 2026.</p>
+          <button class="copy-btn" type="button" aria-label="Copy the MLA citation for NOAA, Climate">Copy</button></div>
+      </div>
+      <div class="cite">
         <h3>Humans of New York</h3>
         <div class="cite-row"><span class="cite-style">APA 7</span>
           <p class="cite-text">Stanton, B. (n.d.). <em>Humans of New York</em>. Retrieved August 4, 2026, from https://www.humansofnewyork.com/</p>
@@ -467,22 +506,6 @@
 
   </div>
 </main>
-<script>
-(function () {
-  document.querySelectorAll('.copy-btn').forEach(function (b) {
-    b.addEventListener('click', function () {
-      var t = b.parentElement.querySelector('.cite-text');
-      var txt = (t.innerText || t.textContent).replace(/\s+/g, ' ').trim();
-      navigator.clipboard.writeText(txt).then(function () {
-        var old = b.textContent;
-        b.textContent = 'Copied';
-        b.classList.add('copied');
-        setTimeout(function () { b.textContent = old; b.classList.remove('copied'); }, 1600);
-      });
-    });
-  });
-})();
-</script>
 
 <footer class="site-foot">
   <div class="wrap">

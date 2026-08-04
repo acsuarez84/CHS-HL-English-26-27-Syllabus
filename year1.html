@@ -15,6 +15,22 @@
 <body>
 <a class="skip-link" href="#main">Skip to main content</a>
 
+<div class="bg-emblem" aria-hidden="true">
+  <svg viewBox="0 0 400 400" focusable="false">
+    <circle cx="200" cy="200" r="192" class="bg-ring"/>
+    <circle cx="200" cy="200" r="170" class="bg-ring"/>
+    <circle cx="200" cy="200" r="132" class="bg-ring bg-thick"/>
+    <g class="bg-grid">
+      <ellipse cx="200" cy="200" rx="132" ry="132"/>
+      <ellipse cx="200" cy="200" rx="44" ry="132"/>
+      <ellipse cx="200" cy="200" rx="88" ry="132"/>
+      <line x1="68" y1="200" x2="332" y2="200"/>
+      <line x1="86" y1="134" x2="314" y2="134"/>
+      <line x1="86" y1="266" x2="314" y2="266"/>
+    </g>
+  </svg>
+</div>
+
 <div class="sticky-stack">
 <header class="topbar">
   <div class="topbar-inner">
@@ -45,6 +61,11 @@
     <button class="util-btn" id="read-aloud" type="button" aria-pressed="false"
             title="Read this page aloud">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 8.5a4 4 0 0 1 0 7"/><path d="M18.5 6a7.5 7.5 0 0 1 0 12"/></svg><span class="label">Read aloud</span>
+    </button>
+
+    <button class="util-btn" id="cite-size" type="button" aria-pressed="false"
+            title="Citations are set in 6px small print. Enlarge them to read.">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19 9 5l5 14"/><path d="M5.5 15h7"/><path d="M16 19l4-9 0 0"/></svg><span class="label">Bigger citations</span>
     </button>
 
     <button class="util-btn" id="theme-toggle" type="button" aria-pressed="false"
@@ -78,8 +99,52 @@
 </div>
 <main id="main" tabindex="-1">
   <div class="wrap">
-    <div class="page-head"><span class="eyebrow">Section 5</span><h1>Year 1 &mdash; Junior Year (2026&ndash;2027)</h1><p class="lede">Tentative and subject to change. Year 1 culminates in the Individual Oral in spring 2027 and the start of the HL Essay over summer.</p></div>
+    <div class="page-head"><span class="eyebrow">Section 6</span><h1>Year 1 &mdash; Junior Year (2026&ndash;2027)</h1><p class="lede">Tentative and subject to change. Year 1 culminates in the Individual Oral in spring 2027 and the start of the HL Essay over summer.</p></div>
 
+    <h2 id="works-this-year">Literary works studied this year (4 of 6)</h2>
+    <div class="wgrid">
+    <div class="wcard">
+      <span class="wq">Q1</span>
+      <h3><em>The Tunnel</em></h3>
+      <p class="wmeta">Ernesto Sabato &middot; Argentina, 1948 &middot; Novella, in translation</p>
+      <p class="wtime">4 weeks &middot; ~150 pp.</p>
+      <div class="mini-cites">
+        <div class="mini-row"><span class="mini-style">APA</span><span class="mini-text">Sabato, E. (2011). <em>The tunnel</em> (M. S. Peden, Trans.). Penguin Classics. (Original work published 1948)</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+        <div class="mini-row"><span class="mini-style">MLA</span><span class="mini-text">Sabato, Ernesto. <em>The Tunnel</em>. Translated by Margaret Sayers Peden, Penguin Classics, 2011.</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+      </div>
+    </div>
+    <div class="wcard">
+      <span class="wq">Q2</span>
+      <h3><em>The Hour of the Star</em></h3>
+      <p class="wmeta">Clarice Lispector &middot; Brazil, 1977 &middot; Novella, in translation</p>
+      <p class="wtime">4 weeks</p>
+      <div class="mini-cites">
+        <div class="mini-row"><span class="mini-style">APA</span><span class="mini-text">Lispector, C. (2011). <em>The hour of the star</em> (B. Moser, Trans.). New Directions. (Original work published 1977)</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+        <div class="mini-row"><span class="mini-style">MLA</span><span class="mini-text">Lispector, Clarice. <em>The Hour of the Star</em>. Translated by Benjamin Moser, New Directions, 2011.</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+      </div>
+    </div>
+    <div class="wcard">
+      <span class="wq">Q3</span>
+      <h3><em>The Woman in the Dunes</em></h3>
+      <p class="wmeta">K&#333;b&#333; Abe &middot; Japan, 1962 &middot; Novel, in translation</p>
+      <p class="wtime">4 weeks</p>
+      <div class="mini-cites">
+        <div class="mini-row"><span class="mini-style">APA</span><span class="mini-text">Abe, K. (1991). <em>The woman in the dunes</em> (E. D. Saunders, Trans.). Vintage Books. (Original work published 1962)</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+        <div class="mini-row"><span class="mini-style">MLA</span><span class="mini-text">Abe, K&#333;b&#333;. <em>The Woman in the Dunes</em>. Translated by E. Dale Saunders, Vintage Books, 1991.</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+      </div>
+    </div>
+    <div class="wcard">
+      <span class="wq">Q4</span>
+      <h3><em>Selected Short Stories (6)</em></h3>
+      <p class="wmeta">Katherine Mansfield &middot; NZ / UK, 1920&ndash;23 &middot; Short fiction</p>
+      <p class="wtime">3 weeks</p>
+      <div class="mini-cites">
+        <div class="mini-row"><span class="mini-style">APA</span><span class="mini-text">Mansfield, K. (1922). <em>The garden party and other stories</em>. Constable. https://www.gutenberg.org/ebooks/1429</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+        <div class="mini-row"><span class="mini-style">MLA</span><span class="mini-text">Mansfield, Katherine. <em>The Garden Party and Other Stories</em>. Constable, 1922. <em>Project Gutenberg</em>, gutenberg.org/ebooks/1429.</span><button class="copy-btn mini-copy" type="button">Copy</button></div>
+      </div>
+    </div>
+    </div>
+    <h2 id="quarters">Quarter by quarter</h2>
     <div class="unit-band">
       <div class="u-label">Q1</div>
       <h2>Readers, Writers, and Texts</h2>
