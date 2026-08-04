@@ -1,0 +1,1335 @@
+/* ================================================================
+   ENG1237 — Intersectional Machines
+   Interactive syllabus — shared stylesheet
+   Monochrome, high-contrast, inverted-container design.
+   Light mode : white page, black containers with white text.
+   Dark  mode : dark page, white containers with black text.
+   ================================================================ */
+
+:root {
+  --font-sans: "Segoe UI", system-ui, -apple-system, Roboto, Helvetica, Arial, sans-serif;
+  --font-serif: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+
+  /* ---- Light theme (default): white page, black containers ---- */
+  --bg: #ffffff;
+  --text: #111111;          /* text directly on the page */
+  --text-soft: #4a4a4a;
+  --line: #111111;          /* hairlines on the page */
+
+  --card: #141414;          /* container background */
+  --card-text: #ffffff;     /* container text */
+  --card-soft: #cfcfcf;     /* muted text on containers */
+  --card-line: #3a3a3a;     /* dividers inside containers */
+  --card-chip-bg: #ffffff;  /* inverted chip inside a container */
+  --card-chip-text: #111111;
+
+  --focus: #1a73e8;
+  --shadow: 0 2px 6px rgba(0,0,0,.14), 0 14px 40px rgba(0,0,0,.16);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.16);
+  --ok-bg: #ffffff;
+  --ok-text: #0b6b3a;
+  --radius: 16px;
+  --maxw: 900px;
+  --link: #6b2d5c;        /* brand plum; 9.74:1 on the page */
+  --card-link: #d9a6cc;   /* light plum; 9.02:1 inside a container */
+}
+
+:root[data-theme="dark"] {
+  --bg: #0e0e11;
+  --text: #f4f4f5;
+  --text-soft: #b6b6ba;
+  --line: #f4f4f5;
+
+  --card: #ffffff;
+  --card-text: #111111;
+  --card-soft: #565660;
+  --card-line: #d8d8de;
+  --card-chip-bg: #111111;
+  --card-chip-text: #ffffff;
+
+  --focus: #7db1ff;
+  --shadow: 0 2px 6px rgba(0,0,0,.5), 0 16px 44px rgba(0,0,0,.55);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.5);
+  --ok-bg: #ffffff;
+  --ok-text: #0b6b3a;
+  --link: #d9a6cc;        /* the pair swaps with the theme */
+  --card-link: #6b2d5c;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e0e11;
+    --text: #f4f4f5;
+    --text-soft: #b6b6ba;
+    --line: #f4f4f5;
+    --card: #ffffff;
+    --card-text: #111111;
+    --card-soft: #565660;
+    --card-line: #d8d8de;
+    --card-chip-bg: #111111;
+    --card-chip-text: #ffffff;
+    --focus: #7db1ff;
+    --shadow: 0 2px 6px rgba(0,0,0,.5), 0 16px 44px rgba(0,0,0,.55);
+    --shadow-sm: 0 1px 3px rgba(0,0,0,.5);
+    --link: #d9a6cc;        /* the pair swaps with the theme */
+    --card-link: #6b2d5c;
+  }
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 1.2rem;           /* larger base type */
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- Skip link ---- */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  z-index: 200;
+  background: var(--card);
+  color: var(--card-text);
+  padding: .7rem 1.1rem;
+  border-radius: 0 0 var(--radius) 0;
+  font-weight: 700;
+}
+.skip-link:focus { left: 0; }
+
+/* ---- Focus visibility ---- */
+a:focus-visible,
+button:focus-visible,
+summary:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ================= Top navigation ================= */
+.sticky-stack { position: sticky; top: 0; z-index: 100; }
+.topbar {
+  background: var(--bg);
+  border-bottom: 2px solid var(--line);
+}
+.topbar-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: .6rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+  flex-wrap: wrap;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  font-weight: 800;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: .01em;
+  font-size: 1.08rem;
+}
+.brand .dot {
+  width: 1.7rem; height: 1.7rem;
+  border-radius: 50%;
+  background: var(--card);
+  border: 2px solid var(--line);
+  display: inline-block;
+  flex: none;
+}
+.brand small { color: var(--text-soft); font-weight: 600; }
+
+.home-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  text-decoration: none;
+  font-weight: 800;
+  color: var(--card-text);
+  background: var(--card);
+  padding: .45rem .95rem;
+  border-radius: 999px;
+  font-size: 1rem;
+  border: 2px solid var(--line);
+}
+.home-tab:hover { filter: contrast(1.1); }
+.home-tab:visited { color: var(--card-text); }
+.home-tab svg { width: 1.1em; height: 1.1em; }
+
+.nav-spacer { flex: 1 1 auto; }
+
+/* Sections dropdown */
+.menu { position: relative; }
+.menu > summary {
+  list-style: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .45rem .85rem;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text);
+  font-weight: 700;
+  font-size: 1rem;
+}
+.menu > summary::-webkit-details-marker { display: none; }
+.menu[open] > summary { background: var(--card); color: var(--card-text); }
+.menu-panel {
+  position: absolute;
+  right: 0;
+  margin-top: .5rem;
+  width: min(360px, 88vw);
+  background: var(--card);
+  color: var(--card-text);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: .4rem;
+  z-index: 120;
+}
+.menu-panel a {
+  display: flex;
+  gap: .6rem;
+  align-items: center;
+  padding: .55rem .65rem;
+  border-radius: 10px;
+  text-decoration: none;
+  color: var(--card-text);
+}
+.menu-panel a:visited { color: var(--card-text); }
+.menu-panel a:hover { background: color-mix(in srgb, var(--card-text) 14%, transparent); }
+.menu-panel a[aria-current="page"] { background: color-mix(in srgb, var(--card-text) 18%, transparent); font-weight: 800; }
+.menu-panel .num {
+  flex: none;
+  width: 1.8rem; height: 1.8rem;
+  display: inline-grid; place-items: center;
+  background: var(--card-chip-bg);
+  color: var(--card-chip-text);
+  border-radius: 7px;
+  font-weight: 800;
+  font-size: .9rem;
+}
+
+/* Utility buttons (theme + read aloud) */
+.util-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .45rem .8rem;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: .95rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.util-btn:hover { background: var(--card); color: var(--card-text); }
+.util-btn svg { width: 1.2em; height: 1.2em; flex: none; }
+.util-btn .label { white-space: nowrap; }
+@media (max-width: 620px) {
+  .util-btn .label { display: none; }
+}
+
+/* ================= Read-aloud control bar ================= */
+.reader-bar { display: none; background: var(--card); color: var(--card-text); border-bottom: 2px solid var(--line); }
+.reader-bar.active { display: block; }
+.reader-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: .55rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  flex-wrap: wrap;
+}
+.reader-inner strong { font-size: 1rem; }
+.reader-inner .rbtn {
+  background: transparent;
+  border: 2px solid var(--card-text);
+  color: var(--card-text);
+  border-radius: 999px;
+  padding: .3rem .85rem;
+  font: inherit;
+  font-weight: 700;
+  font-size: .95rem;
+  cursor: pointer;
+}
+.reader-inner .rbtn:hover { background: var(--card-text); color: var(--card); }
+.reader-inner label { font-size: .92rem; display: inline-flex; align-items: center; gap: .35rem; }
+.reader-inner select {
+  background: var(--card);
+  color: var(--card-text);
+  border: 2px solid var(--card-text);
+  border-radius: 8px;
+  padding: .2rem .4rem;
+  font: inherit;
+  font-size: .92rem;
+}
+.reader-status { margin-left: auto; font-size: .9rem; }
+
+/* text-to-speech reading highlight */
+.tts-reading {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ================= Layout ================= */
+.wrap { max-width: var(--maxw); margin: 0 auto; padding: 2.2rem 1.15rem 4.5rem; }
+.wrap.wide { max-width: 1160px; }
+main:focus { outline: none; }
+
+/* keep anchored targets clear of the sticky header */
+:target, [id] { scroll-margin-top: 96px; }
+
+/* ---- Page header ---- */
+.page-head { margin: .5rem 0 2.2rem; }
+.eyebrow {
+  display: inline-block;
+  font-size: .92rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--card-text);
+  background: var(--card);
+  padding: .3rem .75rem;
+  border-radius: 999px;
+  margin-bottom: 1rem;
+}
+h1 {
+  font-family: var(--font-serif);
+  font-size: clamp(2.3rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  margin: 0 0 .6rem;
+  letter-spacing: -.01em;
+}
+.lede { font-size: 1.32rem; color: var(--text-soft); margin: .4rem 0 0; max-width: 62ch; }
+
+h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.7rem, 3.4vw, 2.15rem);
+  margin: 2.6rem 0 .9rem;
+  line-height: 1.2;
+}
+h3 {
+  font-size: 1.18rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  margin: 2rem 0 .7rem;
+}
+p { margin: 0 0 1.15rem; }
+
+a { color: var(--link); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+a:visited { color: var(--link); }
+/* Containers invert the page, so a page-coloured link inside one lands at
+   1.02:1 -- black on black. Links in a container take the container's pair. */
+table a, table a:visited, .card a, .card a:visited { color: var(--card-link); }
+
+/* cross-reference "see section" links */
+.xref {
+  font-weight: 800;
+  white-space: nowrap;
+  background: var(--card);
+  color: var(--card-text);
+  padding: .05em .45em;
+  border-radius: 6px;
+  text-decoration: none;
+}
+.xref::after { content: " \2197"; font-size: .82em; }
+.xref:hover { filter: contrast(1.15); }
+.xref:visited { color: var(--card-text); }
+
+/* ================= Lotus fold book (home hero) ================= */
+/* A concentric, blooming lotus. The whole flower lives inside an 820px
+   coordinate box that is scaled to fit any viewport, so radii and petal
+   sizes never need media queries. Centre = 410,410. */
+.lotus-intro { text-align: center; max-width: 66ch; margin: 0 auto 1.2rem; }
+
+.lotus-stage { position: relative; width: 100%; margin: 1rem auto 1.5rem; }
+/* --U is the flower's diameter; every radius, size and font scales from it,
+   so the whole lotus stays proportional with no media queries. */
+.lotus-fit {
+  --U: min(1000px, calc(100vw - 8rem), calc(100vh - 15rem));
+  position: relative;
+  width: var(--U);
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  overflow: visible;   /* let the vines + identity markers sit past the petals */
+}
+/* home page = just the big flower, centred */
+.home-flower { display: grid; place-items: center; }
+.home-flower .lotus-stage { margin: 0 auto; }
+.lotus { position: absolute; inset: 0; }
+
+/* Two layers of teardrop petals, each anchored by its base at the flower
+   centre and radiating outward (2D). They overlap near the middle -> the
+   lotus look -> but their tips fan apart, where the labels sit upright and
+   legible. Inner petals are shorter; outer petals longer. */
+.ring { display: contents; }
+.ring0 { --ph: calc(.32 * var(--U)); --pw: calc(.225 * var(--U)); --z: 22; }
+.ring1 { --ph: calc(.47 * var(--U)); --pw: calc(.205 * var(--U)); --z: 14; }
+/* Section 10 petal: identical in size to the outer ring, seated just behind
+   it (z below .ring1) so it sits cleanly in the notch between sections 9 and 4. */
+.ring-back { --ph: calc(.47 * var(--U)); --pw: calc(.205 * var(--U)); --z: 13; }
+
+/* central seed pod (the heart of the flower / the closed bud's cover) */
+.lotus-center {
+  position: absolute;
+  left: 50%; top: 50%;
+  transform: translate(-50%, -50%);
+  width: calc(.17 * var(--U));
+  height: calc(.17 * var(--U));
+  border-radius: 50%;
+  background: var(--card);
+  color: var(--card-text);
+  border: 3px solid var(--line);
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: calc(.012 * var(--U));
+  z-index: 60;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  font: inherit;
+}
+.lotus-center .lc-course { font-size: calc(.012 * var(--U)); letter-spacing: .08em; text-transform: uppercase; font-weight: 800; }
+.lotus-center .lc-title { font-family: var(--font-serif); font-size: calc(.018 * var(--U)); line-height: 1.0; margin: calc(.004 * var(--U)) 0; }
+.lotus-center .lc-hint { font-size: calc(.011 * var(--U)); color: var(--card-soft); }
+.lotus-center:hover { filter: contrast(1.08); }
+
+/* petals — a teardrop whose base (bottom) sits at the flower centre and
+   whose rounded tip points outward at angle --ang. */
+.petal {
+  position: absolute;
+  left: 50%; top: 50%;
+  width: var(--pw); height: var(--ph);
+  margin-left: calc(var(--pw) / -2);
+  margin-top: calc(var(--ph) * -1);
+  transform-origin: 50% 100%;
+  display: flex;
+  align-items: flex-start;      /* label rides the outer bulb, clear of centre */
+  justify-content: center;
+  padding: calc(.055 * var(--U)) calc(.03 * var(--U)) 0;
+  font-size: calc(.0185 * var(--U));
+  text-align: center;
+  text-decoration: none;
+  background: var(--pc, var(--card));
+  color: #23161f;               /* dark ink reads on every pastel + both themes */
+  border: 2px solid rgba(20,10,16,.20);
+  /* teardrop: wide rounded tip, tapering to the base at the centre */
+  border-radius: 50% 50% 50% 50% / 40% 40% 62% 62%;
+  box-shadow: var(--shadow-sm);
+  /* closed bud: petals collapsed into the centre (a clenched fist) */
+  transform: rotateZ(var(--ang)) scale(.05);
+  opacity: 0;
+  pointer-events: none;
+  z-index: var(--z);
+  transition: transform .85s cubic-bezier(.22,1,.36,1), opacity .5s ease, box-shadow .2s ease;
+}
+.petal:visited { color: #23161f; }
+/* label counter-rotated so it stays upright, and width-capped so long
+   titles wrap *inside* the petal instead of spilling past its edges */
+.petal .p-inner {
+  display: flex; flex-direction: column; align-items: center; gap: .3em;
+  max-width: 84%;
+  transform: rotateZ(calc(-1 * var(--ang)));
+}
+.petal .p-num {
+  font-family: var(--font-serif); font-weight: 800; font-size: 1.2em; line-height: 1;
+  width: 1.7em; height: 1.7em; display: grid; place-items: center;
+  border-radius: 50%; background: rgba(255,255,255,.92); color: #23161f;
+  box-shadow: 0 1px 2px rgba(0,0,0,.18);
+}
+.petal .p-title {
+  font-weight: 800; font-size: .92em; line-height: 1.16;
+  overflow-wrap: break-word; hyphens: auto;
+  text-shadow: 0 1px 0 rgba(255,255,255,.45);
+}
+
+/* bloomed state — the flower opens; petals grow out from the centre to
+   full size, like fingers unclenching from a fist */
+.lotus-stage[data-open] .petal {
+  opacity: 1;
+  pointer-events: auto;
+  transform: rotateZ(var(--ang)) scale(1);
+}
+.lotus-stage[data-open] .petal:hover {
+  z-index: 45; box-shadow: var(--shadow);
+  transform: rotateZ(var(--ang)) scale(1.04);
+}
+/* bloom petal by petal */
+.petal:nth-of-type(2) { transition-delay: .05s; }
+.petal:nth-of-type(3) { transition-delay: .10s; }
+.petal:nth-of-type(4) { transition-delay: .15s; }
+.petal:nth-of-type(5) { transition-delay: .20s; }
+.petal:nth-of-type(6) { transition-delay: .25s; }
+
+/* ---- decorative veined leaves (behind the petals, never covering titles) ---- */
+.leaves { position: absolute; inset: 0; }
+.leaf {
+  position: absolute;
+  left: 50%; top: 50%;
+  --lw: calc(.115 * var(--U));
+  --lh: calc(.5 * var(--U));
+  width: var(--lw); height: var(--lh);
+  margin-left: calc(var(--lw) / -2);
+  margin-top: calc(var(--lh) * -1);
+  transform-origin: 50% 100%;
+  z-index: 3;                    /* below every petal (petals are z 14-22) */
+  opacity: 0;
+  pointer-events: none;
+  transform: rotateZ(var(--ang)) scale(.05);
+  transition: transform .95s cubic-bezier(.22,1,.36,1), opacity .55s ease;
+  filter: drop-shadow(0 2px 3px rgba(0,0,0,.18));
+}
+.leaf-svg { width: 100%; height: 100%; display: block; }
+.lotus-stage[data-open] .leaf {
+  opacity: 1;
+  transform: rotateZ(var(--ang)) scale(1);
+}
+
+/* ---- vines: identity markers that grow from the core into the gaps ---- */
+.vines {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  overflow: visible;
+  z-index: 5;                    /* above leaves, below petals */
+  color: #4f9a5b;               /* leaflet fill via currentColor */
+  opacity: 0;
+  transform: scale(.15);
+  transform-origin: 50% 50%;
+  transition: transform 1s cubic-bezier(.22,1,.36,1), opacity .6s ease;
+  pointer-events: none;
+}
+.vine-stem, .vine-curl {
+  stroke: #4f9a5b; stroke-width: 1.1; fill: none;
+  stroke-linecap: round;
+}
+.vine-curl { stroke-width: .9; }
+.vine-leaflet { fill: #5da65f; }
+.vine-bud { fill: #e6c3ef; stroke: #4f9a5b; stroke-width: .5; }
+.lotus-stage[data-open] .vines { opacity: 1; transform: scale(1); }
+
+/* identity-marker word tags, riding the tips of the vines just past the petals */
+.id-markers { position: absolute; inset: 0; }
+.id-marker {
+  position: absolute;
+  left: 50%; top: 50%;
+  --imh: calc(.56 * var(--U));
+  width: calc(.2 * var(--U)); height: var(--imh);
+  margin-left: calc(.1 * var(--U) * -1);
+  margin-top: calc(var(--imh) * -1);
+  transform-origin: 50% 100%;
+  display: flex; align-items: flex-start; justify-content: center;
+  z-index: 40;                   /* above petals so the words stay readable */
+  opacity: 0;
+  pointer-events: none;
+  transform: rotateZ(var(--ang)) scale(.05);
+  transition: transform 1s cubic-bezier(.22,1,.36,1), opacity .6s ease;
+}
+.id-marker .idm-inner {
+  transform: rotateZ(calc(-1 * var(--ang)));
+  font-family: var(--font-sans);
+  font-weight: 800;
+  font-size: calc(.016 * var(--U));
+  letter-spacing: .04em;
+  text-transform: lowercase;
+  color: var(--card-text);
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  padding: calc(.006 * var(--U)) calc(.014 * var(--U));
+  white-space: nowrap;
+  box-shadow: var(--shadow-sm);
+}
+.lotus-stage[data-open] .id-marker {
+  opacity: 1;
+  transform: rotateZ(var(--ang)) scale(1);
+}
+
+/* ======= Home = just the flower, on the plain page background ======= */
+.home-flower .lotus-fit { --U: min(880px, calc(100vw - 4rem), calc(100vh - 12rem)); }
+
+/* ======= Concept leaves (veined, clickable; terms ride the tip) ======= */
+.pads { position: absolute; inset: 0; z-index: 8; }  /* behind the petals */
+.pad {
+  position: absolute;
+  left: 50%; top: 50%;
+  --rad: calc(.52 * var(--U));
+  height: var(--rad); width: calc(.26 * var(--U));
+  margin-left: calc(.13 * var(--U) * -1);
+  margin-top: calc(var(--rad) * -1);
+  transform-origin: 50% 100%;
+  transform: rotateZ(var(--ang));
+  background: none; border: 0; padding: 0; cursor: pointer; font: inherit;
+}
+.pad-leaf { position: absolute; inset: 0; filter: drop-shadow(0 2px 3px rgba(0,0,0,.22)); }
+.pad-leaf svg { width: 100%; height: 100%; display: block; }
+/* the term sits just past the leaf tip, upright */
+.pad-label {
+  position: absolute; left: 50%; top: calc(-.03 * var(--U));
+  transform: translateX(-50%);
+}
+.pad-label-in {
+  display: inline-block;
+  transform: rotateZ(calc(-1 * var(--ang)));
+  font-family: var(--font-sans); font-weight: 800;
+  font-size: calc(.0155 * var(--U));
+  letter-spacing: .01em; text-transform: lowercase;
+  white-space: nowrap;
+  color: var(--card-text);
+  background: var(--card);
+  border: 1.5px solid var(--line);
+  border-radius: 999px;
+  padding: calc(.006 * var(--U)) calc(.014 * var(--U));
+  box-shadow: var(--shadow-sm);
+  transition: filter .15s ease, transform .15s ease;
+}
+.pad:hover .pad-label-in { transform: rotateZ(calc(-1 * var(--ang))) scale(1.06); }
+.pad:focus-visible { outline: none; }
+.pad:focus-visible .pad-label-in { outline: 3px solid var(--focus); outline-offset: 2px; }
+.pad[aria-expanded="true"] .pad-label-in {
+  background: var(--card-text); color: var(--card);
+}
+
+/* ======= Popup bubble (theories & authors) ======= */
+.bubble-sources { display: none; }
+.concept-bubble {
+  position: fixed; z-index: 200;
+  width: max-content;
+  max-width: min(17rem, calc(100vw - 20px));
+  background: var(--card);
+  color: var(--card-text);
+  border: 2px solid var(--line);
+  border-radius: 12px;
+  padding: .6rem .75rem .65rem;
+  box-shadow: var(--shadow);
+  animation: bubble-in .14s ease-out;
+}
+.concept-bubble[hidden] { display: none; }
+@keyframes bubble-in { from { opacity: 0; transform: translateY(4px) scale(.98); } to { opacity: 1; transform: none; } }
+.bubble-close {
+  position: absolute; top: .35rem; right: .4rem;
+  width: 1.4rem; height: 1.4rem; line-height: 1;
+  border-radius: 50%; cursor: pointer;
+  background: transparent; color: var(--card-text);
+  border: 1.5px solid var(--card-text); font: inherit; font-size: .9rem; font-weight: 800;
+}
+.bubble-close:hover { background: var(--card-text); color: var(--card); }
+.bubble-body h3 {
+  margin: 0 1.3rem .25rem 0; font-size: .98rem; text-transform: capitalize;
+  color: var(--card-text); letter-spacing: 0;
+}
+.bubble-body .take { margin: .2rem 0 .35rem; font-weight: 700; font-size: .86rem; line-height: 1.35; }
+.bubble-body .fits { margin: 0; font-size: .82rem; line-height: 1.35; color: var(--card-soft); }
+.bubble-body .fits-h { font-weight: 800; color: var(--card-text); }
+
+/* ---- Drill-down panels (petals 4/5/9) ---- */
+.drill-panel {
+  max-width: 720px;
+  margin: 1rem auto 0;
+  background: var(--card);
+  color: var(--card-text);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem 1.3rem;
+  box-shadow: var(--shadow);
+  scroll-margin-top: 96px;
+}
+.drill-panel[hidden] { display: none; }
+.drill-head { display: flex; align-items: flex-start; gap: 1rem; }
+.drill-head h3 { margin: 0; color: var(--card-text); text-transform: none; letter-spacing: 0; font-size: 1.15rem; }
+.drill-close {
+  margin-left: auto; flex: none;
+  width: 2rem; height: 2rem; line-height: 1;
+  border-radius: 50%; cursor: pointer;
+  background: transparent; color: var(--card-text);
+  border: 2px solid var(--card-text); font: inherit; font-size: 1.2rem; font-weight: 800;
+}
+.drill-close:hover { background: var(--card-text); color: var(--card); }
+.drill-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: .5rem;
+  margin: .9rem 0 1rem;
+}
+.drill-link {
+  display: block;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--card-text);
+  border: 1.5px solid var(--card-line);
+  border-radius: 10px;
+  padding: .55rem .7rem;
+  background: color-mix(in srgb, var(--card-text) 6%, transparent);
+}
+.drill-link:hover { border-color: var(--card-text); }
+.drill-link:visited { color: var(--card-text); }
+.drill-open {
+  display: inline-block; font-weight: 800; text-decoration: underline;
+  color: var(--card-text);
+}
+.drill-open:visited { color: var(--card-text); }
+
+/* bloomed state — the ring's layer is open; petals settle on their ring */
+.ring.open .petal {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(
+      calc(-50% + (var(--R) * var(--cx))),
+      calc(-50% + (var(--R) * var(--cy)))
+    ) scale(1);
+}
+.ring.open .petal:hover {
+  box-shadow: var(--shadow);
+  z-index: 50;
+  transform: translate(
+      calc(-50% + (var(--R) * var(--cx))),
+      calc(-50% + (var(--R) * var(--cy)))
+    ) scale(1.06);
+}
+/* stagger petals within a ring so the layer unfurls petal by petal */
+.petal:nth-of-type(2) { transition-delay: .06s; }
+.petal:nth-of-type(3) { transition-delay: .12s; }
+.petal:nth-of-type(4) { transition-delay: .18s; }
+
+/* ---- unfold controls + layer stepper ---- */
+.lotus-note { text-align: center; margin-top: .4rem; display: flex; gap: .6rem; justify-content: center; flex-wrap: wrap; }
+.lotus-status { text-align: center; color: var(--text-soft); font-size: .95rem; margin: .5rem 0 .2rem; }
+.btn[disabled] { opacity: .4; cursor: default; filter: none; }
+
+.lotus-legend {
+  list-style: none; padding: 0;
+  display: flex; flex-wrap: wrap; gap: .5rem; justify-content: center;
+  margin: .5rem auto 0; max-width: 70ch;
+}
+.lotus-step {
+  display: inline-flex; align-items: center; gap: .5rem;
+  border: 2px solid var(--line); border-radius: 999px;
+  padding: .3rem .8rem; cursor: pointer;
+  background: var(--bg); color: var(--text); font: inherit; font-size: .95rem;
+}
+.lotus-step .dot {
+  width: 1.5rem; height: 1.5rem; flex: none; border-radius: 50%;
+  display: inline-grid; place-items: center; font-weight: 800; font-size: .85rem;
+  background: var(--bg); color: var(--text); border: 2px solid var(--line);
+}
+.lotus-step.reached { background: var(--card); color: var(--card-text); border-color: var(--line); }
+.lotus-step.reached .dot { background: var(--card-chip-bg); color: var(--card-chip-text); border-color: transparent; }
+.lotus-step[aria-current="step"] { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+/* Big call-to-action button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  font: inherit;
+  font-weight: 800;
+  font-size: 1.05rem;
+  cursor: pointer;
+  background: var(--card);
+  color: var(--card-text);
+  border: 2px solid var(--line);
+  padding: .6rem 1.2rem;
+  border-radius: 999px;
+}
+.btn:hover { filter: contrast(1.1); }
+
+/* ---- Cards grid (used on home fallback + elsewhere) ---- */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  padding: 1.3rem 1.35rem 1.4rem;
+  background: var(--card);
+  color: var(--card-text);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+.card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.card:visited { color: var(--card-text); }
+.card .num {
+  width: 2.3rem; height: 2.3rem;
+  display: grid; place-items: center;
+  background: var(--card-chip-bg);
+  color: var(--card-chip-text);
+  font-weight: 800;
+  border-radius: 10px;
+  font-family: var(--font-serif);
+}
+.card h3 { color: var(--card-text); text-transform: none; letter-spacing: 0; font-size: 1.2rem; margin: .1rem 0 0; }
+.card p { color: var(--card-soft); font-size: 1.02rem; margin: 0; }
+.card .go { color: var(--card-text); font-weight: 800; font-size: .98rem; margin-top: auto; }
+
+/* ---- Content blocks ---- */
+.block, .callout {
+  background: var(--card);
+  color: var(--card-text);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem 1.5rem;
+  margin: 1.3rem 0;
+  box-shadow: var(--shadow-sm);
+}
+.callout { border-left-width: 10px; }
+.callout p:last-child, .block p:last-child { margin-bottom: 0; }
+.block a, .callout a { color: var(--card-text); }
+.block a:visited, .callout a:visited { color: var(--card-text); }
+
+ul.clean, ol.clean { padding-left: 1.4rem; margin: 0 0 1.2rem; }
+ul.clean li, ol.clean li { margin-bottom: .6rem; }
+
+/* ---- Info list (instructor details) ---- */
+.info-list {
+  display: block;
+  margin: 1.2rem 0;
+  background: var(--card);
+  color: var(--card-text);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  padding: .6rem 1.3rem;
+  box-shadow: var(--shadow-sm);
+}
+.info-list .row {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 1rem;
+  padding: .95rem 0;
+  border-bottom: 1px solid var(--card-line);
+}
+.info-list .row:last-child { border-bottom: none; }
+.info-list dt { font-weight: 800; }
+.info-list dd { margin: 0; }
+.info-list a, .info-list a:visited { color: var(--card-text); }
+@media (max-width: 560px) {
+  .info-list .row { grid-template-columns: 1fr; gap: .2rem; }
+}
+
+/* ---- Reading list ---- */
+.reading-group { margin: 1.8rem 0; }
+.reading-group > h3 { margin-top: 0; }
+.reading {
+  display: block;
+  padding: 1.15rem 1.25rem;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+  margin: .8rem 0;
+  background: var(--card);
+  color: var(--card-text);
+  box-shadow: var(--shadow-sm);
+}
+.reading .cite { display: block; margin-bottom: .6rem; }
+.reading .cite .title { font-weight: 800; }
+.reading em { color: var(--card-text); }
+.reading .actions { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+.reading .open {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 1rem;
+  color: var(--card);
+  background: var(--card-text);
+  border: 2px solid var(--card-text);
+  padding: .35rem .85rem;
+  border-radius: 999px;
+}
+.reading .open:hover { filter: contrast(1.1); }
+.reading .open:visited { color: var(--card); }
+.reading .note { font-size: .92rem; color: var(--card-soft); }
+
+.badge {
+  display: inline-block;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: .22rem .55rem;
+  border-radius: 999px;
+  background: var(--card-chip-bg);
+  color: var(--card-chip-text);
+  margin-left: .4rem;
+  vertical-align: middle;
+}
+
+/* ---- Tables ---- */
+.table-scroll { overflow-x: auto; margin: 1.3rem 0; border-radius: var(--radius); border: 2px solid var(--line); }
+table { width: 100%; border-collapse: collapse; min-width: 480px; background: var(--card); color: var(--card-text); }
+caption { text-align: left; color: var(--text-soft); font-size: 1rem; padding: .7rem .9rem; }
+th, td { padding: .8rem .95rem; text-align: left; border-bottom: 1px solid var(--card-line); vertical-align: top; }
+thead th { background: var(--card-chip-bg); color: var(--card-chip-text); font-size: .92rem; text-transform: uppercase; letter-spacing: .04em; }
+tbody tr:hover { background: color-mix(in srgb, var(--card-text) 8%, transparent); }
+tr.subtotal { font-weight: 800; background: color-mix(in srgb, var(--card-text) 10%, transparent); }
+
+/* ---- Section 10 examples table ---- */
+.examples-table th[scope="row"] { font-weight: 800; white-space: nowrap; vertical-align: top; }
+.examples-table td strong { font-weight: 800; }
+.examples-table a { color: var(--card-text); font-weight: 700; text-decoration: underline; }
+.examples-table a:visited { color: var(--card-text); }
+.disclosure { margin-top: 1.3rem; color: var(--text-soft); }
+
+/* ---- Class-by-class schedule chart (Section 9) ---- */
+.sched-legend {
+  list-style: none; padding: 0; margin: 1rem 0 .4rem;
+  display: flex; flex-wrap: wrap; gap: .4rem 1.1rem;
+  font-size: .92rem; color: var(--text-soft); font-weight: 600;
+}
+.sched-legend li { display: inline-flex; align-items: center; gap: .45rem; }
+.sched-legend .sw { width: 1.05rem; height: 1.05rem; border-radius: 4px; border: 1px solid rgba(0,0,0,.25); }
+.sw.red { background: #EE0000; } .sw.grey { background: #D9D9D9; }
+.sw.green { background: #D9F2D0; } .sw.blue { background: #DAE9F7; }
+
+table.schedule {
+  table-layout: fixed;
+  min-width: 940px;
+  border-collapse: collapse;
+  font-size: .86rem;
+}
+table.schedule col { }
+table.schedule th, table.schedule td {
+  border: 1px solid var(--card-line);   /* every cell is its own container */
+  padding: .6rem .7rem;
+  vertical-align: top;
+  line-height: 1.4;
+}
+table.schedule thead th {
+  text-transform: none; letter-spacing: 0;
+  background: var(--card-chip-bg); color: var(--card-chip-text);
+  position: sticky; top: 0; z-index: 2;
+}
+table.schedule .wk-col { width: 6.4rem; text-align: center; }
+table.schedule thead th.wk-col { font-size: .82rem; }
+table.schedule col.c-day { width: 24%; }
+.schedule .col-t { display: block; font-size: 1rem; font-weight: 800; }
+.schedule .col-s { display: block; font-size: .78rem; font-weight: 500; opacity: .85; margin-top: .15rem; text-transform: none; letter-spacing: 0; }
+.schedule tbody tr:hover { background: transparent; }
+.schedule .wk-badge {
+  display: inline-grid; place-items: center;
+  width: 2rem; height: 2rem; margin: .1rem auto;
+  background: var(--card-chip-bg); color: var(--card-chip-text);
+  border-radius: 8px; font-family: var(--font-serif); font-weight: 800; font-size: 1.05rem;
+}
+.schedule .dh { margin: 0 0 .35rem; font-weight: 800; color: var(--card-text); }
+.schedule .rd {
+  margin: 0 0 .45rem; font-family: var(--font-serif);
+  font-weight: 700; color: var(--card-text);
+}
+.schedule .nr { margin: .5rem 0 0; font-size: .82rem; color: var(--card-soft); }
+.schedule td > p { margin: 0 0 .4rem; }
+.schedule td > p:last-child { margin-bottom: 0; }
+.schedule ul.fq { margin: .2rem 0 0; padding-left: 1.05rem; }
+.schedule ul.fq li { margin: .25rem 0; }
+.schedule .clean.sm { margin: .2rem 0 .3rem; padding-left: 1.1rem; }
+.schedule .clean.sm li { margin: .18rem 0; }
+.schedule ol.clean.sm { list-style: decimal; }
+.schedule ul.clean.sm { list-style: disc; }
+
+/* "Examples to look at" boxes — the instructor's own demo projects */
+.schedule .examples {
+  margin: .55rem 0 .2rem;
+  padding: .5rem .6rem .55rem;
+  border: 1px dashed var(--card-line);
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--card-text) 6%, transparent);
+}
+.schedule .examples .ex-h {
+  margin: 0 0 .3rem; font-weight: 800; font-size: .82rem;
+  text-transform: uppercase; letter-spacing: .04em; color: var(--card-soft);
+}
+.schedule .examples ul.clean.sm { margin: 0; padding-left: 1.05rem; }
+.schedule .examples a { font-weight: 700; color: var(--card-text); text-decoration: underline; }
+.schedule .examples a:visited { color: var(--card-text); }
+/* keep the boxes readable inside coloured cells */
+.schedule td.grey .examples, .schedule td.green .examples, .schedule td.blue .examples {
+  border-color: rgba(0,0,0,.28); background: rgba(255,255,255,.45);
+}
+.schedule td.grey .examples a, .schedule td.green .examples a, .schedule td.blue .examples a,
+.schedule td.grey .examples .ex-h, .schedule td.green .examples .ex-h, .schedule td.blue .examples .ex-h {
+  color: #18120f;
+}
+
+/* the instructor's cell colours — fixed in both themes */
+.schedule td.red  { background: #EE0000; color: #fff; }
+.schedule td.red .dh, .schedule td.red strong { color: #fff; }
+.schedule td.grey  { background: #D9D9D9; }
+.schedule td.green { background: #D9F2D0; }
+.schedule td.blue  { background: #DAE9F7; }
+.schedule td.grey, .schedule td.grey .dh, .schedule td.grey strong,
+.schedule td.green, .schedule td.green .dh, .schedule td.green strong,
+.schedule td.blue, .schedule td.blue .dh, .schedule td.blue strong { color: #18120f; }
+.schedule td.blue .due, .schedule td.green .due, .schedule td.grey .due {
+  color: #18120f; border-color: #18120f;
+}
+
+/* ---- Schedule (weeks) ---- */
+.week {
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  margin: 1.1rem 0;
+  overflow: hidden;
+  background: var(--card);
+  color: var(--card-text);
+  box-shadow: var(--shadow-sm);
+}
+.week > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  padding: 1.1rem 1.3rem;
+  font-weight: 700;
+}
+.week > summary::-webkit-details-marker { display: none; }
+.week > summary::after { content: "\25BE"; margin-left: auto; transition: transform .2s ease; }
+.week[open] > summary::after { transform: rotate(180deg); }
+.week > summary:hover { background: color-mix(in srgb, var(--card-text) 8%, transparent); }
+.week .wk-num {
+  flex: none;
+  width: 2.7rem; height: 2.7rem;
+  display: grid; place-items: center;
+  background: var(--card-chip-bg);
+  color: var(--card-chip-text);
+  border-radius: 10px;
+  font-family: var(--font-serif);
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+.week .wk-title { display: flex; flex-direction: column; }
+.week .wk-title .dates { font-size: .9rem; color: var(--card-soft); font-weight: 600; }
+.week-body { padding: 0 1.3rem 1.3rem; display: grid; gap: 1rem; }
+.day { border-top: 1px solid var(--card-line); padding-top: 1rem; }
+.day h4 { margin: 0 0 .35rem; font-size: 1.05rem; }
+.day .meta { font-size: .95rem; color: var(--card-soft); }
+.due {
+  display: inline-block;
+  margin-top: .5rem;
+  font-size: .98rem;
+  font-weight: 800;
+  color: var(--card-text);
+  border: 2px solid var(--card-text);
+  padding: .3rem .7rem;
+  border-radius: 8px;
+}
+.unit-band {
+  margin: 2rem 0 .5rem;
+  padding: 1rem 1.3rem;
+  background: var(--card);
+  color: var(--card-text);
+  border: 3px solid var(--line);
+  border-radius: var(--radius);
+}
+.unit-band .u-label { font-size: .85rem; letter-spacing: .16em; text-transform: uppercase; font-weight: 800; color: var(--card-soft); }
+.unit-band h2 { margin: .2rem 0 .3rem; color: var(--card-text); }
+.unit-band p { margin: 0; color: var(--card-soft); }
+
+/* ---- Prev / next ---- */
+.pager { display: flex; gap: 1rem; margin-top: 3rem; border-top: 2px solid var(--line); padding-top: 1.6rem; }
+.pager a {
+  flex: 1;
+  text-decoration: none;
+  color: var(--card-text);
+  background: var(--card);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+}
+.pager a:visited { color: var(--card-text); }
+.pager a:hover { filter: contrast(1.08); }
+.pager a.next { text-align: right; }
+.pager a span { display: block; }
+.pager a .dir { font-size: .85rem; text-transform: uppercase; letter-spacing: .08em; font-weight: 800; }
+.pager a .ttl { font-weight: 700; margin-top: .15rem; }
+.pager a.disabled { opacity: .4; pointer-events: none; }
+
+/* ---- Footer ---- */
+footer.site { border-top: 2px solid var(--line); background: var(--bg); color: var(--text-soft); font-size: 1rem; }
+footer.site .foot-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 1.8rem 1.15rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+footer.site a, footer.site a:visited { color: var(--text); font-weight: 700; }
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0);
+  white-space: nowrap; border: 0;
+}
+
+/* unit label, shown once at the week a unit begins. The week column is narrow,
+   so this has to wrap inside it rather than spill across the schedule. */
+/* Named wk-unit, not unit-band: the stylesheet already defines .unit-band as
+   a bordered card component used on section 2, and reusing the name gave every
+   schedule label a border and padding it should not have. */
+.schedule .wk-unit { display: block; margin: .5rem auto 0; max-width: 5.6rem;
+  font-family: var(--font-sans); font-size: .58rem; font-weight: 700;
+  letter-spacing: .05em; text-transform: uppercase; line-height: 1.3;
+  color: var(--card-soft); hyphens: none; }
+
+/* ================================================================
+   CHS IB Lang & Lit HL additions
+   ================================================================ */
+
+/* ---- Page furniture ------------------------------------------------ */
+.hl-tag {
+  display: inline-block;
+  font-size: .5em;
+  font-weight: 800;
+  letter-spacing: .08em;
+  vertical-align: middle;
+  padding: .25em .6em;
+  border-radius: 999px;
+  background: var(--card);
+  color: var(--card-text);
+  border: 2px solid var(--line);
+}
+.site-foot {
+  margin-top: 3.5rem;
+  border-top: 2px solid var(--line);
+  padding: 1.6rem 0 2.5rem;
+  font-size: .95rem;
+  color: var(--text-soft);
+}
+.site-foot p { margin: .35rem 0; }
+.foot-note { font-size: .9rem; }
+
+/* ---- Global-issue badges ------------------------------------------- */
+.gi {
+  display: inline-block;
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+  padding: .25rem .6rem;
+  border-radius: 999px;
+  border: 2px solid currentColor;
+  margin: 0 .35rem .3rem 0;
+  white-space: normal;
+}
+.gi-culture  { color: #7a2f6a; }
+.gi-beliefs  { color: #1f5f3f; }
+.gi-politics { color: #9a3b12; }
+.gi-art      { color: #1d4f8b; }
+.gi-science  { color: #4a4a12; }
+:root[data-theme="dark"] .gi-culture  { color: #eaa8db; }
+:root[data-theme="dark"] .gi-beliefs  { color: #86dcae; }
+:root[data-theme="dark"] .gi-politics { color: #ffab7d; }
+:root[data-theme="dark"] .gi-art      { color: #9dc6ff; }
+:root[data-theme="dark"] .gi-science  { color: #dcdc72; }
+/* Inside an inverted container the badge sits on --card, so re-light it. */
+.card .gi, .callout .gi, .info-list .gi, .unit-band .gi, .field-card .gi { filter: none; }
+
+/* ---- Tables --------------------------------------------------------- */
+.works-table, .map-table, .pair-table, .assess-table, .poem-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--card);
+  color: var(--card-text);
+  min-width: 640px;
+}
+.poem-table { min-width: 460px; }
+.works-table th, .works-table td,
+.map-table th, .map-table td,
+.pair-table th, .pair-table td,
+.assess-table th, .assess-table td,
+.poem-table th, .poem-table td {
+  border-bottom: 1px solid var(--card-line);
+  padding: .85rem 1rem;
+  text-align: left;
+  vertical-align: top;
+}
+.works-table thead th, .map-table thead th, .pair-table thead th,
+.assess-table thead th, .poem-table thead th {
+  background: var(--card-chip-bg);
+  color: var(--card-chip-text);
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  position: sticky;
+  top: 0;
+}
+.works-table tbody th, .map-table tbody th, .assess-table tbody th {
+  font-weight: 800;
+  width: 22%;
+  min-width: 190px;
+}
+.byline, .meta, .also, .when {
+  display: block;
+  font-size: .92rem;
+  font-weight: 400;
+  color: var(--card-soft);
+  margin-top: .2rem;
+}
+.also { margin-top: .5rem; font-style: italic; }
+.prl {
+  font-size: .78rem;
+  font-weight: 800;
+  padding: .1rem .45rem;
+  border-radius: 999px;
+  background: var(--card-chip-bg);
+  color: var(--card-chip-text);
+}
+.concept-list { margin: 0; padding-left: 1.1rem; }
+.concept-list li { margin-bottom: .45rem; }
+.map-table td p, .assess-table td p { margin: .4rem 0 0; }
+.map-table td p:first-of-type { margin-top: .3rem; }
+
+/* ---- Concepts page -------------------------------------------------- */
+.concept-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 1rem;
+  margin: 1.4rem 0 2rem;
+}
+.concept-card {
+  background: var(--card);
+  color: var(--card-text);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1rem 1.2rem;
+  box-shadow: var(--shadow-sm);
+}
+.concept-card h3 { margin: 0 0 .4rem; font-size: 1.1rem; }
+.concept-card p { margin: 0; color: var(--card-soft); font-size: .98rem; }
+.field-card {
+  background: var(--card);
+  color: var(--card-text);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.1rem 1.3rem;
+  margin: 1rem 0;
+  box-shadow: var(--shadow-sm);
+}
+.field-card h3 { margin: 0 0 .5rem; }
+.field-card p { color: var(--card-soft); }
+.field-card .cover { color: var(--card-text); }
+.field-card summary { cursor: pointer; font-weight: 700; padding: .3rem 0; }
+.field-card .none { font-style: italic; color: var(--card-soft); }
+
+/* ---- Pairings filter ------------------------------------------------ */
+.filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.2rem 0 .6rem; }
+.filter-btn {
+  font: inherit;
+  font-size: .92rem;
+  font-weight: 700;
+  padding: .45rem .9rem;
+  border-radius: 999px;
+  border: 2px solid var(--line);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+.filter-btn:hover { background: var(--card); color: var(--card-text); }
+.filter-btn.is-active { background: var(--card); color: var(--card-text); }
+.filter-status { font-size: .92rem; color: var(--text-soft); margin: 0 0 .4rem; }
+
+/* ---- Year pages ----------------------------------------------------- */
+.q-cols { display: grid; grid-template-columns: 1.6fr 1fr; gap: 1.2rem; }
+.q-cols h3 {
+  font-size: .82rem;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--card-soft);
+  margin: 0 0 .5rem;
+}
+.unit-band .u-label {
+  font-size: .8rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  color: var(--card-soft);
+}
+@media (max-width: 620px) { .q-cols { grid-template-columns: 1fr; } }
+
+/* ---- Bodies of work ------------------------------------------------- */
+.bow {
+  background: var(--card);
+  color: var(--card-text);
+  border: 2px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.3rem 1.5rem;
+  margin: 1.4rem 0;
+  box-shadow: var(--shadow-sm);
+}
+.bow h2 { margin: 0 0 .5rem; color: var(--card-text); }
+.bow-meta { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin: 0 0 .6rem; }
+.bow-meta .when, .bow-meta .concepts {
+  display: inline-block;
+  margin: 0;
+  font-size: .88rem;
+  font-weight: 700;
+  color: var(--card-soft);
+}
+.bow-gi { margin: 0 0 .8rem; }
+.bow-intro { color: var(--card-soft); }
+.src-list { list-style: none; margin: 1rem 0 0; padding: 0; }
+.src-list > li {
+  border-top: 1px solid var(--card-line);
+  padding: .9rem 0 .2rem;
+}
+.src-list > li.is-new { border-left: 4px solid var(--card-link); padding-left: .9rem; }
+.src-head { margin: 0 0 .35rem; font-weight: 700; }
+.src-list p { margin: 0 0 .5rem; color: var(--card-soft); }
+.tag-new {
+  display: inline-block;
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .15rem .5rem;
+  border-radius: 999px;
+  background: var(--card-chip-bg);
+  color: var(--card-chip-text);
+  margin-left: .5rem;
+  vertical-align: middle;
+}
+.legend { font-size: .95rem; color: var(--text-soft); }
+.legend .tag-new { background: var(--card); color: var(--card-text); border: 1px solid var(--line); }
+.callout.small { padding: .9rem 1.1rem; font-size: .96rem; margin: 1rem 0 0; }
+.callout.small p { margin: 0; }
+.bow .callout.small {
+  background: var(--bg);
+  color: var(--text);
+  border: 2px solid var(--card-line);
+}
+.bow .callout.small a { color: var(--link); }
+
+@media (max-width: 560px) {
+  .bow { padding: 1.1rem 1rem; }
+  .src-list > li.is-new { padding-left: .7rem; }
+}

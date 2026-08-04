@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Individual Oral Pairings &mdash; IB Lang &amp; Lit HL</title>
+<meta name="description" content="Non-literary and literary text pairings for the IB Individual Oral, filterable by global issue.">
+<link rel="stylesheet" href="assets/style.css?v=chs1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%236b2d5c'/%3E%3Ctext x='50' y='68' font-size='46' text-anchor='middle' fill='%23fff' font-family='Georgia,serif'%3EIB%3C/text%3E%3C/svg%3E">
+<script>
+  // Set theme before paint to avoid a flash
+  (function(){try{var t=localStorage.getItem('chs-ib-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="sticky-stack">
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+      <span class="dot" aria-hidden="true"></span>
+      <span>IB Lang &amp; Lit HL <small>&middot; Celebration High School</small></span>
+    </a>
+    <a class="home-tab" href="https://acsuarez84.github.io/Interdisciplinary-Teaching-Portfolio/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span>Home</span></a>
+    <span class="nav-spacer"></span>
+
+    <details class="menu" id="sections-menu">
+      <summary aria-label="Jump to a section">Sections &#9662;</summary>
+      <div class="menu-panel" role="menu">
+        <a href="index.html"><span class="num">&#8962;</span><span>Syllabus home</span></a>
+        <a href="works.html"><span class="num">1</span><span>Literary Works (6)</span></a>
+        <a href="nonliterary.html"><span class="num">2</span><span>Non-Literary Texts</span></a>
+        <a href="concepts.html"><span class="num">3</span><span>Concepts &amp; Global Issues</span></a>
+        <a href="pairings.html" aria-current="page"><span class="num">4</span><span>IO Pairings</span></a>
+        <a href="year1.html"><span class="num">5</span><span>Year 1 &middot; 2026&ndash;27</span></a>
+        <a href="year2.html"><span class="num">6</span><span>Year 2 &middot; 2027&ndash;28</span></a>
+        <a href="assessments.html"><span class="num">7</span><span>Assessments</span></a>
+        <a href="eliot.html"><span class="num">8</span><span>Eliot &mdash; 19 Poems</span></a>
+      </div>
+    </details>
+
+    <button class="util-btn" id="read-aloud" type="button" aria-pressed="false"
+            title="Read this page aloud">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 8.5a4 4 0 0 1 0 7"/><path d="M18.5 6a7.5 7.5 0 0 1 0 12"/></svg><span class="label">Read aloud</span>
+    </button>
+
+    <button class="util-btn" id="theme-toggle" type="button" aria-pressed="false"
+            title="Switch colour theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg><span class="label">Dark mode</span>
+    </button>
+  </div>
+</header>
+
+<div class="reader-bar" id="reader-bar" role="region" aria-label="Read aloud controls">
+  <div class="reader-inner">
+    <strong>&#128266; Reading aloud</strong>
+    <button class="rbtn" id="reader-playpause" type="button">&#9208; Pause</button>
+    <button class="rbtn" id="reader-restart" type="button">&#8635; Restart</button>
+    <button class="rbtn" id="reader-stop" type="button">&#9632; Stop</button>
+    <label>Voice
+      <select id="reader-voice" aria-label="Choose a voice"></select>
+    </label>
+    <label>Speed
+      <select id="reader-rate" aria-label="Reading speed">
+        <option value="0.75">0.75&times;</option>
+        <option value="0.9">0.9&times;</option>
+        <option value="1" selected>1&times;</option>
+        <option value="1.15">1.15&times;</option>
+        <option value="1.35">1.35&times;</option>
+      </select>
+    </label>
+    <span class="reader-status" id="reader-status" aria-live="polite"></span>
+  </div>
+</div>
+</div>
+<main id="main" tabindex="-1">
+  <div class="wrap wide">
+    <div class="page-head"><span class="eyebrow">Section 4</span><h1>Individual Oral Pairings</h1><p class="lede">Every non-literary source in the course, matched to a literary work it genuinely shares a global issue with.</p></div>
+
+    <div class="callout">
+      <p>The IO is supported by <strong>one extract from a non-literary text</strong> and
+      <strong>one from a literary work</strong>. These pairings are starting points, not
+      prescriptions &mdash; a student who finds a better connection should take it, and defend it.</p>
+    </div>
+
+    <div class="filters" role="group" aria-label="Filter pairings by field of inquiry">
+      <button class="filter-btn is-active" type="button" data-filter="all">All</button>
+      <button class="filter-btn" type="button" data-filter="culture">Culture, identity and community</button>
+      <button class="filter-btn" type="button" data-filter="beliefs">Beliefs, values and education</button>
+      <button class="filter-btn" type="button" data-filter="politics">Politics, power and justice</button>
+      <button class="filter-btn" type="button" data-filter="art">Art, creativity and the imagination</button>
+      <button class="filter-btn" type="button" data-filter="science">Science, technology and the environment</button>
+    </div>
+    <p class="filter-status" id="filter-status" aria-live="polite"></p>
+
+    <div class="table-scroll">
+    <table class="pair-table" id="pair-table">
+      <thead><tr>
+        <th scope="col">Non-literary source</th>
+        <th scope="col">Literary work</th>
+        <th scope="col">Shared global issue</th>
+        <th scope="col">The connection</th>
+      </tr></thead>
+      <tbody>
+      <tr data-field="culture">
+        <td>Tracy Chapman, <em>Tracy Chapman</em> &mdash; &ldquo;Fast Car&rdquo;</td>
+        <td><em>The Hour of the Star</em></td>
+        <td><span class="gi gi-culture">Culture, identity and community</span></td>
+        <td>The narrator of &ldquo;Fast Car&rdquo; and Macab&eacute;a are the same socially invisible poor woman. Both texts ask who is permitted to tell her story, and what the telling costs her.</td>
+      </tr>
+      <tr data-field="culture">
+        <td>Tracy Chapman &mdash; &ldquo;Behind the Wall&rdquo;</td>
+        <td><em>Selected Short Stories (Mansfield)</em></td>
+        <td><span class="gi gi-culture">Culture, identity and community</span></td>
+        <td>Harm overheard through a wall, and harm noticed but unspoken at a party: both turn on a witness who registers everything and does nothing.</td>
+      </tr>
+      <tr data-field="politics">
+        <td>Dorothea Lange &mdash; <em>Damaged Child</em>, <em>Migrant Mother</em></td>
+        <td><em>The Hour of the Star</em></td>
+        <td><span class="gi gi-politics">Politics, power and justice</span></td>
+        <td>Documentary witness and its ethics. Lange composes the poor for a public; Lispector&rsquo;s narrator admits he is doing exactly that, and cannot stop.</td>
+      </tr>
+      <tr data-field="culture">
+        <td>Dorothea Lange &mdash; full photo essay</td>
+        <td><em>Selected Short Stories (Mansfield)</em></td>
+        <td><span class="gi gi-culture">Culture, identity and community</span></td>
+        <td>A face and a caption against a life compressed into six pages &mdash; two miniatures that ask how much of a person an image or an epiphany can hold.</td>
+      </tr>
+      <tr data-field="science">
+        <td><em>Interstellar</em> (Nolan, 2014)</td>
+        <td><em>The Woman in the Dunes</em></td>
+        <td><span class="gi gi-science">Science, technology and the environment</span></td>
+        <td>Dust and sand as agents rather than settings. Both works trap people inside an environment that will not negotiate, then ask whether escape or adaptation is the braver choice.</td>
+      </tr>
+      <tr data-field="art">
+        <td><em>Inception</em> (Nolan, 2010)</td>
+        <td><em>The Tunnel</em></td>
+        <td><span class="gi gi-art">Art, creativity and the imagination</span></td>
+        <td>Two obsessive men who build a reality to hold one woman inside it, and cannot tell their construction from the world.</td>
+      </tr>
+      <tr data-field="beliefs">
+        <td><em>Shutter Island</em> (Scorsese, 2010)</td>
+        <td><em>The Tunnel</em></td>
+        <td><span class="gi gi-beliefs">Beliefs, values and education</span></td>
+        <td>The confession that convicts its teller. Both are narrated by a murderer whose account of events the audience trusts until it collapses.</td>
+      </tr>
+      <tr data-field="science">
+        <td><em>Arrival</em> (Villeneuve, 2016)</td>
+        <td><em>Selected Poems (Eliot)</em></td>
+        <td><span class="gi gi-science">Science, technology and the environment</span></td>
+        <td>Language reshaping the experience of time &mdash; Eliot&rsquo;s circular, layered present beside a linguist who learns to remember forwards.</td>
+      </tr>
+      <tr data-field="culture">
+        <td>Edward Hopper &mdash; <em>Automat</em>, <em>Morning Sun</em></td>
+        <td><em>Selected Short Stories (Mansfield)</em></td>
+        <td><span class="gi gi-culture">Culture, identity and community</span></td>
+        <td><em>Automat</em> is Miss Brill in paint: a woman alone in public, composing herself for an audience that is not looking.</td>
+      </tr>
+      <tr data-field="culture">
+        <td>Edward Hopper &mdash; <em>Nighthawks</em>, <em>Early Sunday Morning</em></td>
+        <td><em>The Tunnel</em></td>
+        <td><span class="gi gi-culture">Culture, identity and community</span></td>
+        <td>The city as a set of lit windows nobody can enter. Hopper&rsquo;s geometry does visually what Castel&rsquo;s narration does verbally.</td>
+      </tr>
+      <tr data-field="culture">
+        <td>Kreml Hair Tonic, &ldquo;My barber knows women&rdquo; (1944)</td>
+        <td><em>Othello</em></td>
+        <td><span class="gi gi-culture">Culture, identity and community</span></td>
+        <td>A man is trusted to report what women want. Iago works the same trick, and Othello believes him over Desdemona.</td>
+      </tr>
+      <tr data-field="culture">
+        <td>Ad*Access &mdash; &ldquo;Towards a day less war!&rdquo;</td>
+        <td><em>Selected Short Stories (Mansfield)</em></td>
+        <td><span class="gi gi-culture">Culture, identity and community</span></td>
+        <td>The advertised ideal woman against Mansfield&rsquo;s women measuring themselves against it and falling short.</td>
+      </tr>
+      <tr data-field="politics">
+        <td>W. E. B. Du Bois &mdash; Data Portraits (1900)</td>
+        <td><em>Othello</em></td>
+        <td><span class="gi gi-politics">Politics, power and justice</span></td>
+        <td>Du Bois seizes the tools of representation to describe his own people. Othello never gets that chance &mdash; Venice narrates him, and he finally narrates himself only in a suicide speech.</td>
+      </tr>
+      <tr data-field="science">
+        <td>Our World in Data &middot; climate infographics</td>
+        <td><em>The Woman in the Dunes</em></td>
+        <td><span class="gi gi-science">Science, technology and the environment</span></td>
+        <td>Sand measured and sand endured: the same crisis rendered as a chart and as a life.</td>
+      </tr>
+      <tr data-field="politics">
+        <td>Swift, &ldquo;A Modest Proposal&rdquo; (1729)</td>
+        <td><em>The Hour of the Star</em></td>
+        <td><span class="gi gi-politics">Politics, power and justice</span></td>
+        <td>Both hand the reader a narrator who discusses the poor with appalling composure, and both make that composure the real subject.</td>
+      </tr>
+      <tr data-field="culture">
+        <td>Key &amp; Peele, &ldquo;Obama&rsquo;s Anger Translator&rdquo;</td>
+        <td><em>Othello</em></td>
+        <td><span class="gi gi-culture">Culture, identity and community</span></td>
+        <td>The Black man&rsquo;s carefully governed public voice, and the rage it costs to maintain it. Othello holds that composure in Act 1 and loses it by Act 3.</td>
+      </tr>
+      <tr data-field="culture">
+        <td>Sojourner Truth, &ldquo;Ain&rsquo;t I a Woman?&rdquo; (1851)</td>
+        <td><em>Selected Short Stories (Mansfield)</em></td>
+        <td><span class="gi gi-culture">Culture, identity and community</span></td>
+        <td>Whose womanhood counts. Truth names the exclusion directly; Mansfield&rsquo;s servants and spinsters live inside it without naming it.</td>
+      </tr>
+      <tr data-field="politics">
+        <td>Frederick Douglass, &ldquo;What to the Slave Is the Fourth of July?&rdquo; (1852)</td>
+        <td><em>Othello</em></td>
+        <td><span class="gi gi-politics">Politics, power and justice</span></td>
+        <td>The outsider addressing, in its own rhetoric, the society that refuses him. Both speakers are magnificent and both are alone in the room.</td>
+      </tr>
+      <tr data-field="politics">
+        <td>Martin Luther King Jr., &ldquo;I Have a Dream&rdquo; (1963)</td>
+        <td><em>Othello</em></td>
+        <td><span class="gi gi-politics">Politics, power and justice</span></td>
+        <td>Rhetoric as the instrument of justice rather than manipulation &mdash; the deliberate counterweight to Iago&rsquo;s persuasion.</td>
+      </tr>
+      <tr data-field="beliefs">
+        <td>Malala Yousafzai, UN Youth Assembly (2013)</td>
+        <td><em>Selected Poems (Eliot)</em></td>
+        <td><span class="gi gi-beliefs">Beliefs, values and education</span></td>
+        <td>What a society believes is worth passing on. Eliot mourns a tradition emptying out; Malala demands entry to one being withheld.</td>
+      </tr>
+      <tr data-field="science">
+        <td>Greta Thunberg, UN Climate Action Summit (2019)</td>
+        <td><em>The Woman in the Dunes</em></td>
+        <td><span class="gi gi-science">Science, technology and the environment</span></td>
+        <td>Complicity and inertia. The villagers shovel sand forever because stopping is unthinkable; Thunberg&rsquo;s charge is that we are doing the same.</td>
+      </tr>
+      <tr data-field="culture">
+        <td>Frank Bellew, &ldquo;Melican Leportee Man&rdquo; (1879)</td>
+        <td><em>Othello</em></td>
+        <td><span class="gi gi-culture">Culture, identity and community</span></td>
+        <td>A white artist ventriloquising a Chinese voice, and a Venetian play ventriloquising a Moor. Both ask who holds the pen when an outsider &lsquo;speaks.&rsquo;</td>
+      </tr>
+      <tr data-field="politics">
+        <td>&ldquo;The Rich Growing Richer&hellip;&rdquo; (1871)</td>
+        <td><em>The Hour of the Star</em></td>
+        <td><span class="gi gi-politics">Politics, power and justice</span></td>
+        <td>Inequality drawn as caricature and inequality written as one woman&rsquo;s unremarkable life.</td>
+      </tr>
+      <tr data-field="science">
+        <td>NASA &amp; NOAA climate sites</td>
+        <td><em>The Woman in the Dunes</em></td>
+        <td><span class="gi gi-science">Science, technology and the environment</span></td>
+        <td>Institutional authority about nature, set against a novel in which nature answers to no institution at all.</td>
+      </tr>
+      <tr data-field="culture">
+        <td>Humans of New York</td>
+        <td><em>Selected Short Stories (Mansfield)</em></td>
+        <td><span class="gi gi-culture">Culture, identity and community</span></td>
+        <td>A stranger&rsquo;s life delivered in a paragraph and a photograph &mdash; the modernist epiphany rebuilt for the scroll.</td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+    <nav class="pager" aria-label="Page navigation">
+      <a href="concepts.html">&larr; Concepts &amp; global issues</a>
+      <a href="year1.html">Year 1 &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+<script>
+(function () {
+  var btns = document.querySelectorAll('.filter-btn');
+  var rows = document.querySelectorAll('#pair-table tbody tr');
+  var status = document.getElementById('filter-status');
+  function apply(f) {
+    var shown = 0;
+    rows.forEach(function (r) {
+      var ok = (f === 'all' || r.getAttribute('data-field') === f);
+      r.hidden = !ok;
+      if (ok) shown++;
+    });
+    btns.forEach(function (b) {
+      var on = b.getAttribute('data-filter') === f;
+      b.classList.toggle('is-active', on);
+      b.setAttribute('aria-pressed', on ? 'true' : 'false');
+    });
+    status.textContent = 'Showing ' + shown + ' of ' + rows.length + ' pairings.';
+  }
+  btns.forEach(function (b) {
+    b.setAttribute('aria-pressed', b.classList.contains('is-active') ? 'true' : 'false');
+    b.addEventListener('click', function () { apply(b.getAttribute('data-filter')); });
+  });
+  apply('all');
+})();
+</script>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Celebration High School &middot; IB Language &amp; Literature HL &middot; Cohort 2026&ndash;2028<br>
+    Instructor: Angely Suarez &middot; Room 7-245 &middot;
+    <a href="mailto:angely.suarezdejesus@osceolaschools.net">angely.suarezdejesus@osceolaschools.net</a></p>
+    <p class="foot-note">All works and schedules are subject to change.
+    <a href="IB-HL%20Lang%20and%20Lit%20Syllabus.docx">Download the syllabus (.docx)</a></p>
+  </div>
+</footer>
+<script src="assets/app.js?v=chs1"></script>
+</body>
+</html>
