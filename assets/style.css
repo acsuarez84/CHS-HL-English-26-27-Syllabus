@@ -1564,15 +1564,16 @@ footer.site a, footer.site a:visited { color: var(--text); font-weight: 700; }
   pointer-events: none;
   overflow: hidden;
 }
-.bg-emblem svg {
-  width: min(178vh, 178vw);
+/* The official IB World School mark, supplied by the school. */
+.bg-emblem img {
+  width: min(165vh, 165vw);
   height: auto;
-  opacity: .16;
+  opacity: .17;
 }
-:root[data-theme="dark"] .bg-emblem svg { opacity: .20; }
-.bg-ring { fill: none; stroke: var(--text); stroke-width: 4; }
-.bg-thick { stroke-width: 8; }
-.bg-grid { fill: none; stroke: var(--text); stroke-width: 2.6; }
+:root[data-theme="dark"] .bg-emblem img {
+  opacity: .26;
+  filter: brightness(1.7) saturate(1.25);
+}
 
 /* Keep content legible above the watermark. */
 .wrap { position: relative; }
