@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Course Policies &mdash; IB Lang &amp; Lit HL</title>
+<meta name="description" content="Attendance, course expectations, non-negotiable rules, academic integrity and the AI policy.">
+<link rel="stylesheet" href="assets/style.css?v=chs1">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%236b2d5c'/%3E%3Ctext x='50' y='68' font-size='46' text-anchor='middle' fill='%23fff' font-family='Georgia,serif'%3EIB%3C/text%3E%3C/svg%3E">
+<script>
+  // Set theme before paint to avoid a flash
+  (function(){try{var t=localStorage.getItem('chs-ib-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();
+</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<div class="bg-emblem" aria-hidden="true">
+  <img src="assets/ib-logo.png" alt="" width="447" height="447" decoding="async">
+</div>
+
+<div class="sticky-stack">
+<header class="topbar">
+  <div class="topbar-inner">
+    <a class="brand" href="index.html">
+      <span class="dot" aria-hidden="true"></span>
+      <span>IB Lang &amp; Lit HL <small>&middot; Celebration High School</small></span>
+    </a>
+    <a class="home-tab" href="index.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg><span>Home</span></a>
+    <span class="nav-spacer"></span>
+
+    <details class="menu" id="sections-menu">
+      <summary aria-label="Jump to a section">Sections &#9662;</summary>
+      <div class="menu-panel" role="menu">
+        <a href="index.html"><span class="num">&#8962;</span><span>Syllabus home</span></a>
+        <a href="works.html"><span class="num">1</span><span>Literary Works (6)</span></a>
+        <a href="nonliterary.html"><span class="num">2</span><span>Non-Literary Texts</span></a>
+        <a href="concepts.html"><span class="num">3</span><span>Concepts &amp; Global Issues</span></a>
+        <a href="questions.html"><span class="num">4</span><span>Question Banks</span></a>
+        <a href="year1.html"><span class="num">5</span><span>Year 1 &middot; 2026&ndash;27</span></a>
+        <a href="year2.html"><span class="num">6</span><span>Year 2 &middot; 2027&ndash;28</span></a>
+        <a href="assessments.html"><span class="num">7</span><span>Assessments</span></a>
+        <a href="policy.html" aria-current="page"><span class="num">8</span><span>Course Policies</span></a>
+        <a href="citations.html"><span class="num">9</span><span>Citations &mdash; APA &amp; MLA</span></a>
+      </div>
+    </details>
+
+    <button class="util-btn" id="read-aloud" type="button" aria-pressed="false"
+            title="Read this page aloud">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4Z"/><path d="M16 8.5a4 4 0 0 1 0 7"/><path d="M18.5 6a7.5 7.5 0 0 1 0 12"/></svg><span class="label">Read aloud</span>
+    </button>
+
+    <button class="util-btn" id="cite-size" type="button" aria-pressed="false"
+            title="Citations are set in 6px small print. Enlarge them to read.">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19 9 5l5 14"/><path d="M5.5 15h7"/><path d="M16 19l4-9 0 0"/></svg><span class="label">Bigger citations</span>
+    </button>
+
+    <button class="util-btn" id="theme-toggle" type="button" aria-pressed="false"
+            title="Switch colour theme">
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg><span class="label">Dark mode</span>
+    </button>
+  </div>
+</header>
+
+<div class="reader-bar" id="reader-bar" role="region" aria-label="Read aloud controls">
+  <div class="reader-inner">
+    <strong>&#128266; Reading aloud</strong>
+    <button class="rbtn" id="reader-playpause" type="button">&#9208; Pause</button>
+    <button class="rbtn" id="reader-restart" type="button">&#8635; Restart</button>
+    <button class="rbtn" id="reader-stop" type="button">&#9632; Stop</button>
+    <label>Voice
+      <select id="reader-voice" aria-label="Choose a voice"></select>
+    </label>
+    <label>Speed
+      <select id="reader-rate" aria-label="Reading speed">
+        <option value="0.75">0.75&times;</option>
+        <option value="0.9">0.9&times;</option>
+        <option value="1" selected>1&times;</option>
+        <option value="1.15">1.15&times;</option>
+        <option value="1.35">1.35&times;</option>
+      </select>
+    </label>
+    <span class="reader-status" id="reader-status" aria-live="polite"></span>
+  </div>
+</div>
+</div>
+<main id="main" tabindex="-1">
+  <div class="wrap">
+    <div class="page-head"><span class="eyebrow">Section 8</span><h1>Course Policies</h1><p class="lede">How this classroom runs &mdash; attendance, expectations, the non-negotiables, academic integrity, and what is and is not allowed with AI.</p></div>
+
+    <div class="nb-cover">
+      <div class="nb-label">
+        <span class="nb-label-top">IB Language &amp; Literature &middot; HL</span>
+        <h3>Course Policies</h3>
+        <span class="nb-label-sub">Celebration High School &middot; 2026&ndash;2028</span>
+        <div class="nb-label-rules">
+          <span><i>Name</i></span>
+          <span><i>Period</i></span>
+        </div>
+      </div>
+      <p class="nb-cover-meta">Five tabs. If you are a parent looking for one thing, it is most likely on tab two or tab three.</p>
+    </div>
+    <div class="notebook notebook-quarters">
+      <div class="nb-spiral" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="nb-tabs" role="tablist" aria-label="Course Policies" aria-orientation="vertical">
+        <button role="tab" id="tab-po-1" aria-controls="pg-po-1" aria-selected="true" tabindex="0" class="nb-tab is-active"><span class="nb-tab-num">01</span><span class="nb-tab-label">Attendance &amp; expectations</span></button>
+        <button role="tab" id="tab-po-2" aria-controls="pg-po-2" aria-selected="false" tabindex="-1" class="nb-tab"><span class="nb-tab-num">02</span><span class="nb-tab-label">If you have concerns</span></button>
+        <button role="tab" id="tab-po-3" aria-controls="pg-po-3" aria-selected="false" tabindex="-1" class="nb-tab"><span class="nb-tab-num">03</span><span class="nb-tab-label">Non-negotiables</span></button>
+        <button role="tab" id="tab-po-4" aria-controls="pg-po-4" aria-selected="false" tabindex="-1" class="nb-tab"><span class="nb-tab-num">04</span><span class="nb-tab-label">Academic integrity</span></button>
+        <button role="tab" id="tab-po-5" aria-controls="pg-po-5" aria-selected="false" tabindex="-1" class="nb-tab"><span class="nb-tab-num">05</span><span class="nb-tab-label">AI policy</span></button>
+      </div>
+      <div class="nb-book">
+        <div role="tabpanel" id="pg-po-1" aria-labelledby="tab-po-1" class="nb-page is-active">
+  <section class="qbank"><h2>Attendance &amp; Course Expectations</h2>
+    <h3>Attendance</h3>
+    <p>The attendance policy in place aims to create a more engaging and accomplished school year.
+    Please refer to the Parent/Student Handbook.</p>
+    <h3>Behaviour</h3>
+    <p>This course has frequent collaborative activities and debates. Students are highly encouraged
+    to bring their own perspectives to a topic &mdash; and to do it respectfully. Everyone is treated
+    equally and everyone takes part.</p>
+    <h3>Class presentations</h3>
+    <p>Not everyone likes speaking in front of others, but this course has many oral components, so
+    short presentations are required. <strong>Accommodations will be given as needed.</strong> You
+    will always be given time to prepare and a clear picture of what is expected. Students growing in
+    English as a second language are encouraged to use their native language where applicable.</p>
+    <h3>Classwork &amp; readings</h3>
+    <p>Classwork will include:</p>
+    <ul class="info-list">
+      <li>Research practice</li>
+      <li>Heavy genre analyses</li>
+      <li>Thesis and essay structure outlining</li>
+      <li>Reflection responses through argumentation and synthesis</li>
+    </ul>
+    <p>Assignments are to be completed as set.</p>
+  </section>
+        </div>
+        <div role="tabpanel" id="pg-po-2" aria-labelledby="tab-po-2" class="nb-page" hidden>
+  <section class="qbank"><h2>Difference of Opinion About Content</h2>
+    <p>Parents and students who are unsure about the nature of the content in an assignment or a
+    reading are welcome to have a conversation with me. Not every topic is interpreted the same way by
+    everyone, and feedback is always welcome.</p>
+    <p>Please note that there is a state and district curriculum we must follow, and
+    <strong>all readings are state-approved</strong>.</p>
+    <div class="callout small"><p><strong>To parents.</strong> Teaching is not a solo profession
+    &mdash; it is a partnership with you. Please help us hold the line on the cell phone rules and on
+    homework completion. If you need help with resources, contact me or the school administration.
+    We are here to help.</p></div>
+  </section>
+        </div>
+        <div role="tabpanel" id="pg-po-3" aria-labelledby="tab-po-3" class="nb-page" hidden>
+  <section class="qbank"><h2>Non-Negotiable Rules</h2>
+    <h3>Cell phones</h3>
+    <p>Florida has a strict policy on cell phones, smart watches and earbuds. Unless there is a
+    medical need or the teacher has given permission for educational use, devices go in book bags,
+    silenced or switched off. <strong>Unauthorised use of any listed device results in a
+    referral.</strong></p>
+    <h3>Backpacks</h3>
+    <p>Backpacks go on top of or below the wooden table on the right side of the classroom.</p>
+    <h3>Snacking</h3>
+    <p>Only students with a medical need to eat during class may do so. If that applies to you, take
+    the snack out on entering and place it on your desk &mdash; it prevents disruption mid-activity.
+    Everyone else: water only.</p>
+  </section>
+        </div>
+        <div role="tabpanel" id="pg-po-4" aria-labelledby="tab-po-4" class="nb-page" hidden>
+  <section class="qbank"><h2>Cheating &amp; Plagiarism</h2>
+    <div class="callout"><p>Any cheating or plagiarism results in a report to the IB coordinator,
+    a parent meeting, and <strong>a zero on the assignment with no remediation</strong>.
+    It is not worth it.</p></div>
+    <h3>Turnitin</h3>
+    <p>This course uses <a href="https://www.turnitin.com">turnitin.com</a>, which compares each
+    submission against billions of web pages and a database of student papers that grows with every
+    submission. You may be expected to submit assignments electronically. After processing, I receive
+    a report stating if and how another author&rsquo;s work was used.</p>
+  </section>
+        </div>
+        <div role="tabpanel" id="pg-po-5" aria-labelledby="tab-po-5" class="nb-page" hidden>
+  <section class="qbank"><h2>Artificial Intelligence</h2>
+    <p>Osceola School District strictly prohibits the general use of AI. In this course, you will
+    be taught to use it responsibly &mdash; and AI itself forms part of the
+    <strong>science, technology and the environment</strong> global issue we examine across the
+    year.</p>
+    <h3>Use of AI only with acknowledgement</h3>
+    <p>You may use AI tools on assignments <strong>if the use is properly documented and
+    credited</strong>. Any attempt to pass AI output off as your own work is plagiarism and will be
+    treated as such.</p>
+    <div class="callout small"><p><strong>How to cite it.</strong> Text generated by Copilot should
+    carry a citation such as:<br>
+    &ldquo;Copilot. Accessed 2023-12-03. Prompt: &lsquo;Summarize the Geneva Convention in 50
+    words.&rsquo; Generated using Copilot-Web&rdquo;</p></div>
+    <p class="field-ib"><span class="ib-label">Source</span> Adapted from University of Central
+    Florida, Faculty Center for Teaching and Learning,
+    <a href="https://fctl.ucf.edu/teaching-resources/course-design/syllabus-statements/">Syllabus
+    statements</a>.</p>
+  </section>
+        </div>
+        <div class="nb-nav">
+          <button class="nb-arrow nb-prev" type="button" aria-label="Previous">&larr; Previous</button>
+          <span class="nb-count" aria-live="polite">Policy 1 of 5</span>
+          <button class="nb-arrow nb-next" type="button" aria-label="Next">Next &rarr;</button>
+        </div>
+      </div>
+    </div>
+    <nav class="pager" aria-label="Page navigation">
+      <a href="assessments.html">&larr; Assessments</a>
+      <a href="citations.html">Citations &rarr;</a>
+    </nav>
+
+  </div>
+</main>
+
+<footer class="site-foot">
+  <div class="wrap">
+    <p>Celebration High School &middot; IB Language &amp; Literature HL &middot; Cohort 2026&ndash;2028<br>
+    Instructor: Angely Suarez &middot; Room 7-245 &middot;
+    <a href="mailto:angely.suarezdejesus@osceolaschools.net">angely.suarezdejesus@osceolaschools.net</a></p>
+    <p class="foot-note">All works and schedules are subject to change.
+    <a href="IB-HL%20Lang%20and%20Lit%20Syllabus.docx">Download the syllabus (.docx)</a></p>
+  </div>
+</footer>
+<script src="assets/app.js?v=chs1"></script>
+</body>
+</html>
