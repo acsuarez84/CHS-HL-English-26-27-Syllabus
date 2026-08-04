@@ -72,9 +72,10 @@ Open `index.html` in any modern browser — no build step or server required.
 
 ## Publishing on GitHub Pages
 
-Push to `main`. The workflow in `.github/workflows/pages.yml` builds and deploys
-automatically and turns Pages on by itself, so no Settings change is needed. The site will
-be live at `https://<username>.github.io/<repository>/`.
+**Live at:** https://acsuarez84.github.io/CHS-HL-English-26-27-Syllabus/
+
+Pages is configured as **Deploy from a branch** (`main`, `/root`), so every push to `main`
+republishes the site automatically. Nothing else to do.
 
 The `.nojekyll` file ensures GitHub Pages serves the files as-is.
 
