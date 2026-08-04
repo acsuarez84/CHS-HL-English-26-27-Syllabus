@@ -2552,3 +2552,28 @@ footer.site a, footer.site a:visited { color: var(--text); font-weight: 700; }
 /* ---- Grading scale table --------------------------------------------- */
 .grade-scale { min-width: 260px; }
 .grade-scale td:last-child { width: 6rem; text-align: center; font-size: 1.05rem; }
+
+/* ---- Elements of a form (section 2) ---------------------------------- */
+.bow-elements {
+  margin: .3rem 0 1.1rem;
+  padding: .7rem .9rem;
+  border: 1px solid rgba(0,0,0,.18);
+  border-radius: 10px;
+  background: rgba(255,255,255,.5);
+}
+.bow-elements summary {
+  cursor: pointer;
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .68;
+}
+.bow-elements[open] summary { margin-bottom: .7rem; }
+.el-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: .1rem 1.4rem;
+  margin: 0;
+}
+.el-grid .tdef { margin-bottom: .55rem; }
