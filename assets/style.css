@@ -2138,3 +2138,23 @@ footer.site a, footer.site a:visited { color: var(--text); font-weight: 700; }
   line-height: 1.6;
 }
 .defbox-foot { font-size: .93rem; color: var(--card-soft); margin-bottom: 0; }
+
+/* ---- Cornell cards inside a notebook ---------------------------------- */
+.cnote.in-book {
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 0;
+  padding: 0;
+}
+.cnote.in-book::before { display: none; }   /* the book supplies the margin rule */
+.notebook-quarters .nb-book { min-height: 520px; }
+.notebook-quarters .nb-tab { align-items: flex-start; }
+.notebook-quarters .nb-tab-num { font-size: .82rem; opacity: .75; }
+.notebook-quarters .nb-tab-label { font-size: .74rem; line-height: 1.2; opacity: .85; }
+.notebook-quarters .cnote-head { margin-top: 0; }
+@media (max-width: 720px) {
+  .notebook-quarters .nb-tab-label { display: none; }
+  .notebook-quarters .nb-tab-num { font-size: .9rem; opacity: 1; }
+}
