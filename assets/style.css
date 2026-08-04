@@ -2243,3 +2243,127 @@ footer.site a, footer.site a:visited { color: var(--text); font-weight: 700; }
   .nb-cover { grid-template-columns: 1fr; gap: 1rem; }
   .nb-label { transform: none; max-width: 22rem; }
 }
+
+/* ---- Field of inquiry, deepened -------------------------------------- */
+.field-plain { font-size: 1.03rem; line-height: 1.6; color: var(--card-text); }
+.field-card h4 {
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  opacity: .55;
+  margin: 1.1rem 0 .45rem;
+  color: var(--card-text);
+}
+.field-asks { margin: 0; padding-left: 1.2rem; }
+.field-asks li { margin-bottom: .4rem; line-height: 1.5; color: var(--card-soft); }
+.loi-ladder { display: grid; gap: .5rem; }
+.loi-row {
+  display: grid;
+  grid-template-columns: 8.4rem minmax(0, 1fr);
+  gap: .8rem;
+  align-items: start;
+  padding: .55rem .7rem;
+  border-radius: 9px;
+  background: var(--bg);
+  color: var(--text);
+}
+.loi-tag {
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  padding: .2rem .5rem;
+  border-radius: 999px;
+  border: 1.5px solid currentColor;
+  text-align: center;
+}
+.loi-0 { color: #9a3b12; }
+.loi-1 { color: #8a6a12; }
+.loi-2 { color: #1f5f3f; }
+:root[data-theme="dark"] .loi-0 { color: #ffab7d; }
+:root[data-theme="dark"] .loi-1 { color: #e8c766; }
+:root[data-theme="dark"] .loi-2 { color: #86dcae; }
+.loi-text { line-height: 1.55; }
+.field-ib {
+  font-size: .92rem;
+  color: var(--card-soft);
+  border-top: 1px solid var(--card-line);
+  padding-top: .7rem;
+  margin-top: 1rem;
+}
+.ib-label {
+  display: inline-block;
+  font-size: .62rem;
+  font-weight: 800;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .12rem .45rem;
+  border-radius: 4px;
+  background: var(--card-chip-bg);
+  color: var(--card-chip-text);
+  margin-right: .4rem;
+}
+@media (max-width: 560px) {
+  .loi-row { grid-template-columns: 1fr; gap: .3rem; }
+  .loi-tag { justify-self: start; }
+}
+
+/* ---- PDF badge on a cover -------------------------------------------- */
+.cover-pdf {
+  display: inline-block;
+  margin-top: .3rem;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: .18rem .5rem;
+  border-radius: 999px;
+  background: var(--card-chip-bg);
+  color: var(--card-chip-text);
+}
+
+/* Cards sitting inside a notebook page shed their own frame */
+.nb-page > .qbank,
+.nb-page > .field-card,
+.nb-page > .bow,
+.nb-page > .cite-group > .cite:first-child { margin-top: 0; }
+.nb-page > .qbank,
+.nb-page > .field-card,
+.nb-page > .bow {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  color: var(--nb-ink);
+}
+.nb-page > .bow h2, .nb-page > .qbank h2, .nb-page .field-card h3 { color: var(--nb-ink); }
+.nb-page .bow-intro, .nb-page .qnote, .nb-page .bow-meta .when,
+.nb-page .bow-meta .concepts, .nb-page .src-list p, .nb-page .field-asks li { opacity: .82; }
+.nb-page .src-list > li { border-top-color: rgba(0,0,0,.14); }
+.nb-page .cite-group { margin-top: 0; }
+.nb-page .cite {
+  background: none;
+  border: none;
+  box-shadow: none;
+  padding: .4rem 0;
+  color: var(--nb-ink);
+  border-bottom: 1px solid rgba(0,0,0,.13);
+}
+.nb-page .cite-row { border-top-color: rgba(0,0,0,.1); }
+.nb-page .cite-style, .nb-page .tag-new, .nb-page .mini-style {
+  background: rgba(0,0,0,.08);
+  color: var(--nb-ink);
+}
+.nb-page .copy-btn { border-color: rgba(0,0,0,.28); color: var(--nb-ink); }
+.nb-page .copy-btn:hover, .nb-page .copy-btn.copied { background: rgba(0,0,0,.1); color: var(--nb-ink); }
+.nb-page .concept-card, .nb-page .loi-row, .nb-page .callout.small {
+  background: rgba(255,255,255,.55);
+  color: var(--nb-ink);
+  border: 1px solid rgba(0,0,0,.16);
+}
+.nb-page .concept-card p, .nb-page .nl-chip, .nb-page .field-ib { color: rgba(0,0,0,.66); }
+.nb-page .nl-chip { border-color: rgba(0,0,0,.28); }
+.nb-page .src-tile { border-color: rgba(0,0,0,.3); }
+.nb-page .tile-note, .nb-page .cover-ed, .nb-page .src-fig figcaption { color: rgba(0,0,0,.6); }
+.nb-page a { color: #6b2d5c; }
