@@ -2531,3 +2531,20 @@ footer.site a, footer.site a:visited { color: var(--text); font-weight: 700; }
 .nb-arrow:active:not(:disabled) { transform: translateY(1px); box-shadow: none; }
 .nb-arrow:disabled { opacity: .3; border-style: dashed; }
 .nb-count { font-weight: 700; letter-spacing: .02em; opacity: .7; }
+
+/* ---- Reading measure inside the wide wrap ---------------------------- */
+/* Containers stay wide; running prose keeps a comfortable line length. */
+.wrap.wide > p,
+.wrap.wide > .lede,
+.wrap.wide > .page-head > .lede,
+.wrap.wide > .cnote-intro,
+.wrap.wide > .legend { max-width: 62ch; }
+.nb-notes > p,
+.nb-blurb,
+.qnote,
+.bow-intro,
+.aim-list li,
+.read-qs li,
+.toward-qs li,
+.field-plain,
+.concept-connect { max-width: 74ch; }
