@@ -2389,3 +2389,39 @@ footer.site a, footer.site a:visited { color: var(--text); font-weight: 700; }
 .au-host { font-size: .82rem; opacity: .7; }
 .au-inline { display: inline; }
 .nb-page .au-label { background: rgba(0,0,0,.1); color: var(--nb-ink); }
+
+/* ---- Learning aims --------------------------------------------------- */
+.aim { color: var(--nb-ink); }
+.aim-ib {
+  margin: 0 0 .8rem;
+  padding-bottom: .7rem;
+  border-bottom: 1px solid rgba(0,0,0,.16);
+  font-size: .93rem;
+  line-height: 1.55;
+  font-style: italic;
+  opacity: .85;
+}
+.aim h3 {
+  margin: 0 0 .2rem;
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  line-height: 1.25;
+  color: var(--nb-ink);
+}
+.aim h4 {
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .11em;
+  text-transform: uppercase;
+  opacity: .5;
+  margin: 1.1rem 0 .45rem;
+}
+.aim-list { margin: 0; padding-left: 1.2rem; }
+.aim-list li { margin-bottom: .5rem; line-height: 1.6; }
+.aim-where {
+  margin: 1.1rem 0 0;
+  padding-top: .8rem;
+  border-top: 1px solid rgba(0,0,0,.16);
+  line-height: 1.6;
+}
+.nb-page .aim-ib .ib-label { background: rgba(0,0,0,.1); color: var(--nb-ink); }
