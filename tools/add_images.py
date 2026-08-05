@@ -3,9 +3,9 @@ following the document's own caption-then-image table pattern."""
 import os, copy, shutil, zipfile, hashlib, urllib.request, struct
 import xml.etree.ElementTree as ET
 
-SRC = "/Users/angelysuarez/Documents/IB HL Language and Literature 26-27-Updated.docx"
+SRC = "/Users/angelysuarez/Documents/IB HL Language and Literature 26-27 Updated 3.docx"
 OUT = ("/Users/angelysuarez/Documents/GitHub/CHS-HL English 26-27 Syllabus/docs/"
-       "IB HL Language and Literature 26-27-Updated (images added).docx")
+       "IB HL Language and Literature 26-27 Updated 3 (rebuilt).docx")
 CACHE = os.path.join(os.path.dirname(__file__), "imgcache")
 os.makedirs(CACHE, exist_ok=True)
 UA = ("Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 "
